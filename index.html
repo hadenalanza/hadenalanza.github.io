@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fit with Mo | Your Personal Training & Health Coach</title>
+  <!-- Favicon -->
+  <link rel="icon" href="https://placehold.co/32x32/000000/FFFFFF?text=FM" type="image/png">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts - Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      color: #333;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    .btn-primary {
+      background-color: #22c55e;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .btn-primary:hover {
+      background-color: #16a34a;
+      transform: translateY(-2px);
+    }
+    .section-header {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .card {
+      background-color: white;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    }
+    .testimonial-quote {
+      font-style: italic;
+      color: #475569;
+    }
+    .form-input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.75rem;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: #22c55e;
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+    }
+  </style>
+</head>
+<body class="antialiased">
+  <!-- Header/Navigation -->
+  <header class="bg-white shadow-sm py-4">
+    <div class="container flex justify-between items-center">
+      <a href="#" class="text-3xl font-bold text-green-600 rounded-lg p-2 hover:bg-gray-100 transition-colors">Fit with Mo</a>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="#about" class="text-gray-700 hover:text-green-600 font-medium transition-colors rounded-md px-3 py-2">About</a></li>
+          <li><a href="#services" class="text-gray-700 hover:text-green-600 font-medium transition-colors rounded-md px-3 py-2">Services</a></li>
+          <li><a href="#testimonials" class="text-gray-700 hover:text-green-600 font-medium transition-colors rounded-md px-3 py-2">Testimonials</a></li>
+          <li><a href="#contact" class="btn-primary">Book a Free Call</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-green-500 to-emerald-600 text-white py-20 md:py-32 text-center rounded-b-3xl shadow-lg">
+    <div class="container">
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+        Transform Your Health & Fitness with Mo:<br class="hidden md:block"> Your Personal Coach for Lasting Results
+      </h1>
+      <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">
+        Unlock your full potential with customized fitness plans, expert nutrition guidance, and sustainable lifestyle strategies designed just for you.
+      </p>
+      <a href="#contact" class="btn-primary text-xl px-8 py-4 inline-block">
+        Start Your Transformation Today!
+      </a>
+    </div>
+  </section>
+
+  <!-- About Mo Section -->
+  <section id="about" class="py-16 md:py-24 bg-white">
+    <div class="container flex flex-col md:flex-row items-center gap-12">
+      <div class="md:w-1/2">
+        <img src="https://placehold.co/600x400/22c55e/ffffff?text=Your+Professional+Photo+Here" alt="Mo - Personal Trainer and Coach" class="rounded-3xl shadow-xl w-full h-auto object-cover">
+      </div>
+      <div class="md:w-1/2 text-center md:text-left">
+        <h2 class="section-header text-left">Meet Your Coach, Mo</h2>
+        <p class="text-lg leading-relaxed mb-6">
+          Hi, I'm Mo! My passion is empowering individuals to achieve their health and fitness goals through a holistic and sustainable approach. With years of experience as a <strong class="text-green-600">Certified Personal Trainer</strong>, <strong class="text-green-600">Health Coach</strong>, and <strong class="text-green-600">Lifestyle Coach</strong>, I believe in creating personalized plans that fit your unique life, not the other way around.
+        </p>
+        <p class="text-lg leading-relaxed">
+          My philosophy centers on building strong foundations: consistent movement, balanced nutrition, and a positive mindset. I'm here to provide the expert guidance, unwavering support, and accountability you need to not just reach your goals, but to sustain them for a lifetime. Let's work together to make fitness an enjoyable and integral part of your life!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-16 md:py-24 bg-gray-50">
+    <div class="container text-center">
+      <h2 class="section-header">Your Path to a Healthier You</h2>
+      <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
+        I offer tailored coaching programs designed to meet you wherever you are on your wellness journey.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card">
+          <h3 class="text-2xl font-semibold text-green-600 mb-4">Personal Training</h3>
+          <p class="text-gray-700 mb-4">
+            Customized workout plans, 1-on-1 or small group sessions (online/in-person), and expert guidance to build strength, endurance, and achieve your physique goals.
+          </p>
+          <ul class="text-left text-gray-600 list-disc list-inside mb-4">
+            <li>Personalized workout routines</li>
+            <li>Form correction & technique mastery</li>
+            <li>Strength & conditioning</li>
+            <li>Online & in-person options</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="text-2xl font-semibold text-green-600 mb-4">Health Coaching</h3>
+          <p class="text-gray-700 mb-4">
+            Unlock sustainable nutrition habits, improve energy levels, and manage stress with practical, evidence-based strategies.
+          </p>
+          <ul class="text-left text-gray-600 list-disc list-inside mb-4">
+            <li>Nutrition guidance & meal planning</li>
+            <li>Habit formation & mindset shifts</li>
+            <li>Stress management techniques</li>
+            <li>Holistic well-being focus</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="text-2xl font-semibold text-green-600 mb-4">Lifestyle Coaching</h3>
+          <p class="text-gray-700 mb-4">
+            Integrate fitness and health into your daily life, overcome obstacles, and build a positive, long-term relationship with your well-being.
+          </p>
+          <ul class="text-left text-gray-600 list-disc list-inside mb-4">
+            <li>Accountability & motivation</li>
+            <li>Work-life balance strategies</li>
+            <li>Goal setting & progress tracking</li>
+            <li>Sustainable lifestyle integration</li>
+          </ul>
+        </div>
+      </div>
+      <a href="#contact" class="btn-primary mt-12 text-lg px-6 py-3 inline-block">
+        Learn More & Get Started
+      </a>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="py-16 md:py-24 bg-white">
+    <div class="container text-center">
+      <h2 class="section-header">Real Transformations, Real Results</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="card">
+          <p class="testimonial-quote text-xl mb-4">
+            "Working with Mo was a game-changer! I've not only lost 15kg but also gained incredible confidence and energy. Her personalized approach made fitness enjoyable and sustainable. Highly recommend!"
+          </p>
+          <p class="font-semibold text-gray-800">- Sarah L., Marketing Professional</p>
+          <img src="https://placehold.co/400x250/d1fae5/10b981?text=Client+Transformation" alt="Client Transformation" class="rounded-xl mt-4 mx-auto shadow-md">
+        </div>
+        <div class="card">
+          <p class="testimonial-quote text-xl mb-4">
+            "Mo helped me understand nutrition in a way no one else could. Her lifestyle coaching has transformed my daily habits, leading to better sleep and less stress. It's truly holistic coaching!"
+          </p>
+          <p class="font-semibold text-gray-800">- David R., Small Business Owner</p>
+          <img src="https://placehold.co/400x250/d1fae5/10b981?text=Client+Success" alt="Client Success" class="rounded-xl mt-4 mx-auto shadow-md">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 md:py-24 bg-gradient-to-r from-emerald-600 to-green-500 text-white rounded-t-3xl shadow-lg">
+    <div class="container text-center max-w-2xl mx-auto">
+      <h2 class="section-header text-white">Ready to Get Started?</h2>
+      <p class="text-xl mb-8">
+        Let's connect for a free discovery call to discuss your goals and how I can help you achieve them.
+      </p>
+      <form class="bg-white p-8 rounded-2xl shadow-xl text-gray-800">
+        <div class="mb-4">
+          <input type="text" id="name" name="name" placeholder="Your Name" class="form-input" required>
+        </div>
+        <div class="mb-4">
+          <input type="email" id="email" name="email" placeholder="Your Email" class="form-input" required>
+        </div>
+        <div class="mb-4">
+          <textarea id="message" name="message" rows="4" placeholder="Tell me about your fitness goals..." class="form-input resize-y" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary w-full text-lg py-3">
+          Schedule Your Free Discovery Call
+        </button>
+        <p class="text-sm text-gray-600 mt-4">
+          Or connect with me directly: <a href="mailto:your.email@example.com" class="text-green-600 hover:underline">your.email@example.com</a>
+        </p>
+      </form>
+      <div class="mt-8">
+        <h3 class="text-2xl font-semibold mb-4">Follow Mo on Social Media!</h3>
+        <div class="flex justify-center space-x-6">
+          <a href="https://instagram.com/fitwithmo" target="_blank" rel="noopener noreferrer" class="text-white hover:text-gray-200 transition-colors">
+            <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" d="M12 0C8.74 0 8.333.01 7.035.07c-1.315.06-2.103.24-2.83.54a4.99 4.99 0 00-1.832 1.12c-.78.69-1.42 1.54-1.83 2.83-.3.72-.48 1.51-.54 2.83-.06 1.3-.07 1.7-.07 5.005s.01 3.705.07 5.005c.06 1.315.24 2.103.54 2.83a4.99 4.99 0 001.12 1.832c.69.78 1.54 1.42 2.83 1.83.72.3 1.51.48 2.83.54 1.3.06 1.7.07 5.005.07s3.705-.01 5.005-.07c1.315-.06 2.103-.24 2.83-.54a4.99 4.99 0 001.832-1.12c.78-.69 1.42-1.54 1.83-2.83.3-.72.48-1.51.54-2.83.06-1.3.07-1.7.07-5.005s-.01-3.705-.07-5.005c-.06-1.315-.24-2.103-.54-2.83a4.99 4.99 0 00-1.12-1.832c-.69-.78-1.54-1.42-2.83-1.83-.72-.3-1.51-.48-2.83-.54C15.705.01 15.3.001 12 0zm0 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.79.22 2.22.4a3.004 3.004 0 011.66 1.66c.18.43.35 1.05.4 2.22.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.22 1.79-.4 2.22a3.004 3.004 0 01-1.66 1.66c-.43.18-1.05.35-2.22.4-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.79-.22-2.22-.4a3.004 3.004 0 01-1.66-1.66c-.18-.43-.35-1.05-.4-2.22-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.22-1.79.4-2.22a3.004 3.004 0 011.66-1.66c.43-.18 1.05-.35 2.22-.4C8.42 2.17 8.8 2.16 12 2.16zm0 3.635a6.205 6.205 0 100 12.41 6.205 6.205 0 000-12.41zm0 2.16a4.045 4.045 0 110 8.09 4.045 4.045 0 010-8.09zm6.21-3.635a1.47 1.47 0 100 2.94 1.47 1.47 0 000-2.94z" clip-rule="evenodd"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8 text-center rounded-t-lg">
+    <div class="container">
+      <p>© 2025 Fit with Mo. All rights reserved.</p>
+      <p class="text-sm mt-2">Designed for your success in personal training, health coaching, and lifestyle transformation.</p>
+    </div>
+  </footer>
+</body>
+</html>
