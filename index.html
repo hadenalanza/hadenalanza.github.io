@@ -4,12 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fit with Mo | Your Personal Training & Health Coach!</title>
-  <!-- Favicon -->
   <link rel="icon" href="https://placehold.co/32x32/000000/FFFFFF?text=FM" type="image/png">
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts - Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -27,12 +24,13 @@
       padding: 0.75rem 1.5rem;
       border-radius: 9999px;
       font-weight: 600;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 14px rgba(34, 197, 94, 0.25);
     }
     .btn-primary:hover {
       background-color: #16a34a;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 7px 20px rgba(34, 197, 94, 0.3);
     }
     .section-header {
       font-size: 2.5rem;
@@ -45,12 +43,13 @@
       background-color: white;
       border-radius: 1.5rem;
       padding: 2rem;
-      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2e8f0;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
     }
     .testimonial-quote {
       font-style: italic;
@@ -70,10 +69,54 @@
       border-color: #22c55e;
       box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
     }
+    
+    /* --- New Hero Animation --- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-content {
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    /* --- New Carousel Styles --- */
+    .carousel-container {
+      width: 100%;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+    .carousel-track {
+      display: flex;
+      width: calc(250px * 10); /* 250px per image, 5 images duplicated */
+      animation: scroll 40s linear infinite;
+    }
+    .carousel-track:hover {
+      animation-play-state: paused;
+    }
+    .carousel-slide {
+      width: 250px;
+      flex-shrink: 0;
+      padding: 0 10px;
+    }
+    .carousel-slide img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 1.5rem; /* Rounded corners for images */
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .carousel-slide img:hover {
+      transform: scale(1.05);
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-250px * 5)); } /* Scroll by the width of the original 5 images */
+    }
   </style>
 </head>
 <body class="antialiased">
-  <!-- Header/Navigation -->
   <header class="bg-white shadow-sm py-4">
     <div class="container flex justify-between items-center">
       <a href="#" class="text-3xl font-bold text-green-600 rounded-lg p-2 hover:bg-gray-100 transition-colors">Fit with Mo!</a>
@@ -88,26 +131,27 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-r from-green-500 to-emerald-600 text-white py-20 md:py-32 text-center rounded-b-3xl shadow-lg">
-    <div class="container">
-      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
-        Transform Your Health & Fitness with Mo:<br class="hidden md:block"> Your Personal Coach for Lasting Results
-      </h1>
-      <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">
-        Unlock your full potential with customized fitness plans, expert nutrition guidance, and sustainable lifestyle strategies designed just for you.
-      </p>
-      <a href="#contact" class="btn-primary text-xl px-8 py-4 inline-block">
-        Start Your Transformation Today!
-      </a>
+  <section class="relative bg-gradient-to-r from-green-500 to-emerald-600 text-white text-center overflow-hidden">
+    <div class="container py-20 md:py-32">
+      <div class="hero-content">
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 text-shadow-lg">
+          Transform Your Health & Fitness with Mo:<br class="hidden md:block"> Your Personal Coach for Lasting Results
+        </h1>
+        <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-green-100">
+          Unlock your full potential with customized fitness plans, expert nutrition guidance, and sustainable lifestyle strategies designed just for you.
+        </p>
+        <a href="#contact" class="btn-primary text-xl px-8 py-4 inline-block">
+          Start Your Transformation Today!
+        </a>
+      </div>
     </div>
+    <div class="absolute bottom-0 left-0 w-full h-24 bg-white" style="clip-path: polygon(0 100%, 100% 100%, 100% 0);"></div>
   </section>
 
-  <!-- About Mo Section -->
   <section id="about" class="py-16 md:py-24 bg-white">
     <div class="container flex flex-col md:flex-row items-center gap-12">
       <div class="md:w-1/2">
-        <img src="https://placehold.co/600x400/22c55e/ffffff?text=Your+Professional+Photo+Here" alt="Mo - Personal Trainer and Coach" class="rounded-3xl shadow-xl w-full h-auto object-cover">
+        <img src='media/person-working-out.jpg' alt="Mo - Personal Trainer and Coach" class="rounded-3xl shadow-xl w-full h-auto object-cover">
       </div>
       <div class="md:w-1/2 text-center md:text-left">
         <h2 class="section-header text-left">Meet Your Coach, Mo</h2>
@@ -121,7 +165,6 @@
     </div>
   </section>
 
-  <!-- Services Section -->
   <section id="services" class="py-16 md:py-24 bg-gray-50">
     <div class="container text-center">
       <h2 class="section-header">Your Path to a Healthier You</h2>
@@ -172,30 +215,46 @@
     </div>
   </section>
 
-  <!-- Testimonials Section -->
   <section id="testimonials" class="py-16 md:py-24 bg-white">
     <div class="container text-center">
       <h2 class="section-header">Real Transformations, Real Results</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="card">
-          <p class="testimonial-quote text-xl mb-4">
-            "Working with Mo was a game-changer! I've not only lost 15kg but also gained incredible confidence and energy. Her personalized approach made fitness enjoyable and sustainable. Highly recommend!"
-          </p>
-          <p class="font-semibold text-gray-800">- Sarah L., Marketing Professional</p>
-          <img src="https://placehold.co/400x250/d1fae5/10b981?text=Client+Transformation" alt="Client Transformation" class="rounded-xl mt-4 mx-auto shadow-md">
+      <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
+        See the success stories from clients who have transformed their lives with a balanced and sustainable approach to fitness.
+      </p>
+      
+      <div class="carousel-container">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="media/1000060824.jpg" alt="Client transformation photo 1"></div>
+          <div class="carousel-slide"><img src="media/1000060843.jpg" alt="Client transformation photo 2"></div>
+          <div class="carousel-slide"><img src="media/1000060852.jpg" alt="Client transformation photo 3"></div>
+          <div class="carousel-slide"><img src="media/1000060958 - Edited.jpg" alt="Client transformation photo 4"></div>
+          <div class="carousel-slide"><img src="media/1000060961 - Edited.jpg" alt="Client transformation photo 5"></div>
+          
+          <div class="carousel-slide"><img src="media/1000060824.jpg" alt="Client transformation photo 1"></div>
+          <div class="carousel-slide"><img src="media/1000060843.jpg" alt="Client transformation photo 2"></div>
+          <div class="carousel-slide"><img src="media/1000060852.jpg" alt="Client transformation photo 3"></div>
+          <div class="carousel-slide"><img src="media/1000060958 - Edited.jpg" alt="Client transformation photo 4"></div>
+          <div class="carousel-slide"><img src="media/1000060961 - Edited.jpg" alt="Client transformation photo 5"></div>
         </div>
-        <div class="card">
-          <p class="testimonial-quote text-xl mb-4">
-            "Mo helped me understand nutrition in a way no one else could. Her lifestyle coaching has transformed my daily habits, leading to better sleep and less stress. It's truly holistic coaching!"
-          </p>
-          <p class="font-semibold text-gray-800">- David R., Small Business Owner</p>
-          <img src="https://placehold.co/400x250/d1fae5/10b981?text=Client+Success" alt="Client Success" class="rounded-xl mt-4 mx-auto shadow-md">
-        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+          <div class="card">
+            <p class="testimonial-quote text-xl mb-4">
+              "Working with Mo was a game-changer! I've not only lost 15kg but also gained incredible confidence and energy. Her personalized approach made fitness enjoyable and sustainable. Highly recommend!"
+            </p>
+            <p class="font-semibold text-gray-800">- Sarah L., Marketing Professional</p>
+          </div>
+          <div class="card">
+            <p class="testimonial-quote text-xl mb-4">
+              "Mo helped me understand nutrition in a way no one else could. Her lifestyle coaching has transformed my daily habits, leading to better sleep and less stress. It's truly holistic coaching!"
+            </p>
+            <p class="font-semibold text-gray-800">- David R., Small Business Owner</p>
+          </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
   <section id="contact" class="py-16 md:py-24 bg-gradient-to-r from-emerald-600 to-green-500 text-white rounded-t-3xl shadow-lg">
     <div class="container text-center max-w-2xl mx-auto">
       <h2 class="section-header text-white">Ready to Get Started?</h2>
@@ -232,7 +291,6 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="bg-gray-800 text-white py-8 text-center rounded-t-lg">
     <div class="container">
       <p>© 2025 Fit with Mo. All rights reserved.</p>
