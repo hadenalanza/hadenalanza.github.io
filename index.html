@@ -9,12 +9,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
   <style>
     body {
-      /* Font family updated */
       font-family: 'Poppins', sans-serif;
       background-color: #f8fafc;
       color: #333;
+    }
+    .logo-font {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
     }
     .container {
       max-width: 1200px;
@@ -36,7 +40,6 @@
       box-shadow: 0 7px 20px rgba(34, 197, 94, 0.3);
     }
     .section-header {
-      /* Font size reduced */
       font-size: 2.25rem;
       font-weight: 700;
       color: #1e293b;
@@ -73,8 +76,8 @@
       border-color: #22c55e;
       box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
     }
-    
-    /* --- New Hero Animation --- */
+
+    /* Hero Animation */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -83,31 +86,39 @@
       animation: fadeIn 1s ease-out forwards;
     }
 
-    /* --- New Carousel Styles --- */
+    /* Carousel Styles */
+    :root {
+      --slide-width: clamp(150px, 30vw, 250px);
+      --slide-height: clamp(210px, 42vw, 350px);
+      --scroll-speed: 40s;
+      --slide-count: 5;
+    }
+
     .carousel-container {
       width: 100%;
       overflow: hidden;
-      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
     }
+
     .carousel-track {
       display: flex;
-      width: calc(250px * 10); /* 250px per image, 5 images duplicated */
-      animation: scroll 40s linear infinite;
+      width: calc(var(--slide-width) * 10);
+      animation: scroll var(--scroll-speed) linear infinite;
     }
     .carousel-track:hover {
       animation-play-state: paused;
     }
     .carousel-slide {
-      width: 250px;
+      width: var(--slide-width);
       flex-shrink: 0;
       padding: 0 10px;
     }
     .carousel-slide img {
       width: 100%;
-      height: 350px;
+      height: var(--slide-height);
       object-fit: cover;
-      border-radius: 1.5rem; /* Rounded corners for images */
+      border-radius: 1.5rem;
       box-shadow: 0 10px 20px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
     }
@@ -116,19 +127,53 @@
     }
     @keyframes scroll {
       0% { transform: translateX(0); }
-      100% { transform: translateX(calc(-250px * 5)); } /* Scroll by the width of the original 5 images */
+      100% { transform: translateX(calc(-1 * var(--slide-width) * var(--slide-count))); }
+    }
+
+    /* Responsive mask adjustments */
+    @media (max-width: 768px) {
+      .carousel-container {
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .carousel-container {
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
+      }
+    }
+
+    /* FAQ Styles */
+    .faq-item {
+      border-bottom: 1px solid #e2e8f0;
+      padding: 1.5rem 0;
+    }
+    .faq-question {
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-answer {
+      margin-top: 1rem;
+      color: #475569;
     }
   </style>
 </head>
 <body class="antialiased text-gray-800">
-  <header class="bg-white shadow-sm py-4">
+  <header class="bg-white shadow-sm py-4 sticky top-0 z-50">
     <div class="container flex justify-between items-center">
-      <a href="#" class="text-2xl font-bold text-green-600 rounded-lg p-2 hover:bg-gray-100 transition-colors">Fit with Mo!</a>
+      <a href="#" class="text-3xl logo-font text-green-600 rounded-lg p-2 hover:bg-gray-100 transition-colors">Fit with Mo!</a>
       <nav>
         <ul class="flex space-x-6 text-sm">
           <li><a href="#about" class="text-gray-700 hover:text-green-600 font-medium transition-colors rounded-md px-3 py-2">About</a></li>
+          <li><a href="#why" class="text-gray-700 hover:text-green-600 font-medium transition-colors rounded-md px-3 py-2">Why Choose Us</a></li>
           <li><a href="#services" class="text-gray-700 hover:text-green-600 font-medium transition-colors rounded-md px-3 py-2">Services</a></li>
           <li><a href="#testimonials" class="text-gray-700 hover:text-green-600 font-medium transition-colors rounded-md px-3 py-2">Testimonials</a></li>
+          <li><a href="#faq" class="text-gray-700 hover:text-green-600 font-medium transition-colors rounded-md px-3 py-2">FAQ</a></li>
           <li><a href="#contact" class="btn-primary text-sm">Book a Free Call</a></li>
         </ul>
       </nav>
@@ -155,7 +200,21 @@
   <section id="about" class="py-16 md:py-24 bg-white">
     <div class="container flex flex-col md:flex-row items-center gap-12">
       <div class="md:w-1/2">
-        <img src='media/person-working-out.jpg' alt="Mo - Personal Trainer and Coach" class="rounded-3xl shadow-xl w-full h-auto object-cover">
+        <div class="carousel-container">
+          <div class="carousel-track">
+            <div class="carousel-slide"><img src="media/1000060824.jpg" alt="Mo - Personal Trainer and Coach 1"></div>
+            <div class="carousel-slide"><img src="media/1000060843.jpg" alt="Mo - Personal Trainer and Coach 2"></div>
+            <div class="carousel-slide"><img src="media/1000060852.jpg" alt="Mo - Personal Trainer and Coach 3"></div>
+            <div class="carousel-slide"><img src="media/1000060958 - Edited.jpg" alt="Mo - Personal Trainer and Coach 4"></div>
+            <div class="carousel-slide"><img src="media/1000060961 - Edited.jpg" alt="Mo - Personal Trainer and Coach 5"></div>
+
+            <div class="carousel-slide"><img src="media/1000060824.jpg" alt="Mo - Personal Trainer and Coach 1"></div>
+            <div class="carousel-slide"><img src="media/1000060843.jpg" alt="Mo - Personal Trainer and Coach 2"></div>
+            <div class="carousel-slide"><img src="media/1000060852.jpg" alt="Mo - Personal Trainer and Coach 3"></div>
+            <div class="carousel-slide"><img src="media/1000060958 - Edited.jpg" alt="Mo - Personal Trainer and Coach 4"></div>
+            <div class="carousel-slide"><img src="media/1000060961 - Edited.jpg" alt="Mo - Personal Trainer and Coach 5"></div>
+          </div>
+        </div>
       </div>
       <div class="md:w-1/2 text-center md:text-left">
         <h2 class="section-header text-left">Meet Your Coach, Mo</h2>
@@ -169,7 +228,51 @@
     </div>
   </section>
 
-  <section id="services" class="py-16 md:py-24 bg-gray-50">
+  <section id="why" class="py-16 md:py-24 bg-gray-50">
+    <div class="container text-center">
+      <h2 class="section-header">Why Choose Fit with Mo?</h2>
+      <p class="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+        Discover what sets our coaching apart and why clients trust us for their wellness journey.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+        <div class="card">
+          <h3 class="text-xl font-semibold text-green-600 mb-4">Personalized Approach</h3>
+          <p class="text-gray-700 mb-4">
+            Every plan is tailored to your unique goals, lifestyle, and preferences for maximum effectiveness and sustainability.
+          </p>
+          <ul class="text-left text-gray-600 list-disc list-inside mb-4">
+            <li>Custom fitness routines</li>
+            <li>Individual nutrition strategies</li>
+            <li>Ongoing adjustments</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="text-xl font-semibold text-green-600 mb-4">Proven Expertise</h3>
+          <p class="text-gray-700 mb-4">
+            Backed by certifications and years of experience, delivering real results for clients from all walks of life.
+          </p>
+          <ul class="text-left text-gray-600 list-disc list-inside mb-4">
+            <li>Certified in multiple disciplines</li>
+            <li>Evidence-based methods</li>
+            <li>Track record of success</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="text-xl font-semibold text-green-600 mb-4">Holistic Support</h3>
+          <p class="text-gray-700 mb-4">
+            Beyond physical training, we focus on mindset, nutrition, and long-term habits for complete transformation.
+          </p>
+          <ul class="text-left text-gray-600 list-disc list-inside mb-4">
+            <li>Mindset coaching</li>
+            <li>Accountability systems</li>
+            <li>Lifetime wellness focus</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="py-16 md:py-24 bg-white">
     <div class="container text-center">
       <h2 class="section-header">Your Path to a Healthier You</h2>
       <p class="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
@@ -219,42 +322,61 @@
     </div>
   </section>
 
-  <section id="testimonials" class="py-16 md:py-24 bg-white">
+  <section id="testimonials" class="py-16 md:py-24 bg-gray-50">
     <div class="container text-center">
       <h2 class="section-header">Real Transformations, Real Results</h2>
       <p class="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
         See the success stories from clients who have transformed their lives with a balanced and sustainable approach to fitness.
       </p>
-      
-      <div class="carousel-container">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="media/1000060824.jpg" alt="Client transformation photo 1"></div>
-          <div class="carousel-slide"><img src="media/1000060843.jpg" alt="Client transformation photo 2"></div>
-          <div class="carousel-slide"><img src="media/1000060852.jpg" alt="Client transformation photo 3"></div>
-          <div class="carousel-slide"><img src="media/1000060958 - Edited.jpg" alt="Client transformation photo 4"></div>
-          <div class="carousel-slide"><img src="media/1000060961 - Edited.jpg" alt="Client transformation photo 5"></div>
-          
-          <div class="carousel-slide"><img src="media/1000060824.jpg" alt="Client transformation photo 1"></div>
-          <div class="carousel-slide"><img src="media/1000060843.jpg" alt="Client transformation photo 2"></div>
-          <div class="carousel-slide"><img src="media/1000060852.jpg" alt="Client transformation photo 3"></div>
-          <div class="carousel-slide"><img src="media/1000060958 - Edited.jpg" alt="Client transformation photo 4"></div>
-          <div class="carousel-slide"><img src="media/1000060961 - Edited.jpg" alt="Client transformation photo 5"></div>
-        </div>
+
+      <div class="mb-12">
+        <img src='media/person-working-out.jpg' alt="Client transformation photo" class="rounded-3xl shadow-xl w-full max-w-md mx-auto h-auto object-cover">
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-          <div class="card">
-            <p class="testimonial-quote text-lg mb-4">
-              "Working with Mo was a game-changer! I've not only lost 15kg but also gained incredible confidence and energy. Her personalized approach made fitness enjoyable and sustainable. Highly recommend!"
-            </p>
-            <p class="font-semibold text-gray-800 text-sm">- Sarah L., Marketing Professional</p>
-          </div>
-          <div class="card">
-            <p class="testimonial-quote text-lg mb-4">
-              "Mo helped me understand nutrition in a way no one else could. Her lifestyle coaching has transformed my daily habits, leading to better sleep and less stress. It's truly holistic coaching!"
-            </p>
-            <p class="font-semibold text-gray-800 text-sm">- David R., Small Business Owner</p>
-          </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="card">
+          <p class="testimonial-quote text-lg mb-4">
+            "Working with Mo was a game-changer! I've not only lost 15kg but also gained incredible confidence and energy. Her personalized approach made fitness enjoyable and sustainable. Highly recommend!"
+          </p>
+          <p class="font-semibold text-gray-800 text-sm">- Sarah L., Marketing Professional</p>
+        </div>
+        <div class="card">
+          <p class="testimonial-quote text-lg mb-4">
+            "Mo helped me understand nutrition in a way no one else could. Her lifestyle coaching has transformed my daily habits, leading to better sleep and less stress. It's truly holistic coaching!"
+          </p>
+          <p class="font-semibold text-gray-800 text-sm">- David R., Small Business Owner</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="py-16 md:py-24 bg-white">
+    <div class="container text-center">
+      <h2 class="section-header">Frequently Asked Questions</h2>
+      <p class="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+        Find answers to common questions about our coaching services.
+      </p>
+      <div class="max-w-3xl mx-auto text-left">
+        <div class="faq-item">
+          <p class="faq-question text-lg">How do I get started with coaching?</p>
+          <p class="faq-answer">Simply book a free discovery call through our contact form. We'll discuss your goals and create a plan tailored to you.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question text-lg">Do I need prior fitness experience?</p>
+          <p class="faq-answer">No experience is necessary! Our programs are designed for all levels, from beginners to advanced.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question text-lg">Are sessions online or in-person?</p>
+          <p class="faq-answer">We offer both options, depending on your location and preferences. Online sessions are conducted via video call.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question text-lg">How long does it take to see results?</p>
+          <p class="faq-answer">Results vary, but most clients notice improvements in energy and habits within 4-6 weeks, with visible changes in 8-12 weeks.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question text-lg">What are the costs?</p>
+          <p class="faq-answer">Pricing is customized based on your needs. Schedule a free call for a personalized quote.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -279,7 +401,7 @@
           Schedule Your Free Discovery Call
         </button>
         <p class="text-sm text-gray-600 mt-4">
-          Or connect with me directly: <a href="mailto:your.email@example.com" class="text-green-600 hover:underline">info@trainwithmo.co.uk</a>
+          Or connect with me directly: <a href="mailto:info@trainwithmo.co.uk" class="text-green-600 hover:underline">info@trainwithmo.co.uk</a>
         </p>
       </form>
       <div class="mt-8">
