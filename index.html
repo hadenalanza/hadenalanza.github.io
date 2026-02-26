@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fit with Mo | Your Personal Training & Health Coach!</title>
     <link
       rel="icon"
-      href="https://placehold.co/32x32/000000/FFFFFF?text=FM"
+      href="https://placehold.co/32x32/22c55e/FFFFFF?text=FM"
       type="image/png"
     />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,527 +22,1306 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Manrope:wght@700;800&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap"
-      rel="stylesheet"
-    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', "sans-serif"],
+              heading: ['"Manrope"', "sans-serif"],
+            },
+            colors: {
+              primary: {
+                50: "#f0fdf4",
+                100: "#dcfce7",
+                200: "#bbf7d0",
+                300: "#86efac",
+                400: "#4ade80",
+                500: "#22c55e",
+                600: "#16a34a",
+                700: "#15803d",
+                800: "#166534",
+                900: "#14532d",
+              },
+            },
+            animation: {
+              "fade-in-up": "fadeInUp 0.6s ease-out forwards",
+              float: "float 6s ease-in-out infinite",
+            },
+            keyframes: {
+              fadeInUp: {
+                "0%": {
+                  opacity: "0",
+                  transform: "translateY(20px)",
+                },
+                "100%": {
+                  opacity: "1",
+                  transform: "translateY(0)",
+                },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+
     <style>
       body {
-        font-family: "Poppins", sans-serif;
-        background-color: #f8fafc;
-        color: #333;
-        scroll-behavior: smooth;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        color: #1e293b;
+        overflow-x: hidden;
       }
-      .logo-font {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 800;
+
+      .font-heading {
+        font-family: "Manrope", sans-serif;
       }
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 1rem;
+
+      /* Modern glassmorphism cards */
+      .glass-card {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
       }
+
+      .glass-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(22, 163, 74, 0.15);
+        border-color: rgba(34, 197, 94, 0.3);
+      }
+
+      /* Hero image styling */
+      .hero-image-container {
+        position: relative;
+        border-radius: 50%; /* Makes it a perfect circle */
+        overflow: hidden;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        animation: float 6s ease-in-out infinite;
+        aspect-square: 1/1; /* Ensures equal width/height */
+        width: min(400px, 90%); /* Controls max size */
+        margin: 0 auto; /* Centers it */
+      }
+
+      .hero-image-container::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          45deg,
+          rgba(22, 163, 74, 0.15),
+          transparent 40%
+        );
+        z-index: 1;
+      }
+
+      .hero-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Prevents image distortion */
+        transition: transform 0.7s ease;
+      }
+
+      .hero-image-container:hover img {
+        transform: scale(1.03);
+      }
+
+      /* Button styles */
       .btn-primary {
-        background-color: #22c55e;
+        background: linear-gradient(135deg, #22c55e, #16a34a);
         color: white;
-        padding: 0.75rem 1.5rem;
+        padding: 0.875rem 2rem;
         border-radius: 9999px;
         font-weight: 600;
-        transition:
-          background-color 0.3s ease,
-          transform 0.2s ease,
-          box-shadow 0.3s ease;
-        box-shadow: 0 4px 14px rgba(34, 197, 94, 0.25);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(34, 197, 94, 0.35);
+        position: relative;
+        overflow: hidden;
       }
+
+      .btn-primary::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
       .btn-primary:hover {
-        background-color: #16a34a;
-        transform: translateY(-3px);
-        box-shadow: 0 7px 20px rgba(34, 197, 94, 0.3);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(34, 197, 94, 0.45);
       }
+
+      .btn-primary:hover::after {
+        opacity: 1;
+      }
+
+      .btn-secondary {
+        background: white;
+        color: #16a34a;
+        border: 2px solid #22c55e;
+        padding: 0.875rem 2rem;
+        border-radius: 9999px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn-secondary:hover {
+        background: #f0fdf4;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(34, 197, 94, 0.2);
+      }
+
+      /* Section headers */
       .section-header {
-        font-size: 2.25rem;
-        font-weight: 700;
-        color: #1e293b;
-        margin-bottom: 2rem;
+        position: relative;
+        display: inline-block;
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #0f172a;
+        margin-bottom: 3rem;
         text-align: center;
       }
-      .card {
-        background-color: white;
-        border-radius: 1.5rem;
-        padding: 2rem;
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
-        border: 1px solid #e2e8f0;
-        transition:
-          transform 0.3s ease,
-          box-shadow 0.3s ease;
-      }
-      .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
-      }
-      .testimonial-quote {
-        font-style: italic;
-        color: #475569;
+
+      .section-header::after {
+        content: "";
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70px;
+        height: 4px;
+        background: linear-gradient(90deg, #22c55e, #16a34a);
+        border-radius: 2px;
       }
 
-      /* Hero Animation */
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .hero-content {
-        animation: fadeIn 1s ease-out forwards;
-      }
-
-      :root {
-        --slide-width: 250px;
-        --slide-height: 350px;
-        --scroll-speed: 25s;
-        --slide-count: 3;
-      }
-
-      html,
-      body {
-        overflow-x: hidden;
-        position: relative;
-        width: 100%;
-      }
-
-      .carousel-container {
-        width: 100%;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .carousel-track {
-        display: flex;
-        /* Ensures the track is wide enough for clones but contained */
-        width: max-content;
-        animation: scroll var(--scroll-speed) linear infinite;
-      }
-
-      @media (max-width: 768px) {
-        :root {
-          --slide-width: 180px;
-          --slide-height: 250px;
-        }
-      }
-
-      .carousel-slide {
-        width: var(--slide-width);
-        flex-shrink: 0;
-        padding: 0 10px;
-      }
-      .carousel-slide img {
-        width: 100%;
-        height: var(--slide-height);
-        object-fit: cover;
-        border-radius: 1.5rem;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      }
-      @keyframes scroll {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(
-            calc(-1 * var(--slide-width) * var(--slide-count))
-          );
-        }
-      }
-
-      /* FAQ Styles */
+      /* FAQ Accordion */
       .faq-item {
         border-bottom: 1px solid #e2e8f0;
-        padding: 1.5rem 0;
+        transition: all 0.3s ease;
       }
+
+      .faq-item:last-child {
+        border-bottom: none;
+      }
+
       .faq-question {
         font-weight: 600;
         cursor: pointer;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 1.25rem 0;
+        transition: color 0.2s ease;
       }
+
+      .faq-question:hover {
+        color: #16a34a;
+      }
+
       .faq-answer {
-        margin-top: 1rem;
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.4s ease,
+          padding 0.4s ease;
         color: #475569;
+        line-height: 1.6;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 200px;
+        padding: 0 0 1.25rem 0;
+      }
+
+      .faq-toggle {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #f1f5f9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+      }
+
+      .faq-item.active .faq-toggle {
+        background: #22c55e;
+        color: white;
+        transform: rotate(45deg);
+      }
+
+      /* Testimonial cards */
+      .testimonial-card {
+        background: white;
+        border-radius: 1.75rem;
+        padding: 2rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .testimonial-card::before {
+        content: '"';
+        position: absolute;
+        top: 16px;
+        left: 20px;
+        font-size: 5rem;
+        color: rgba(34, 197, 94, 0.1);
+        font-family: Georgia, serif;
+        line-height: 1;
+        z-index: 0;
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .testimonial-content {
+        position: relative;
+        z-index: 1;
+        font-style: italic;
+        color: #475569;
+        line-height: 1.7;
+      }
+
+      /* Navigation */
+      .nav-link {
+        position: relative;
+        padding: 0.5rem 0;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #22c55e;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      /* Pricing cards */
+      .pricing-card {
+        background: white;
+        border-radius: 2rem;
+        padding: 2.5rem 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s ease;
+        position: relative;
+        border: 1px solid #e2e8f0;
+      }
+
+      .pricing-card.featured {
+        border: 2px solid #22c55e;
+        transform: scale(1.03);
+        z-index: 10;
+      }
+
+      .pricing-card.featured::before {
+        content: "Most Popular";
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+        color: white;
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 0.25rem 1rem;
+        border-radius: 9999px;
+        box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+      }
+
+      .pricing-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      .pricing-card.featured:hover {
+        transform: scale(1.05) translateY(-8px);
+      }
+
+      /* Mobile menu */
+      .mobile-menu {
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        max-height: 0;
+        overflow: hidden;
+      }
+
+      .mobile-menu.active {
+        max-height: 400px;
+        padding: 1.5rem 0;
+      }
+
+      /* Scroll reveal animation */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Decorative elements */
+      .decoration-dot {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: #22c55e;
+        border-radius: 50%;
+        opacity: 0.6;
+      }
+
+      /* Calendly widget styling */
+      .calendly-container {
+        border-radius: 1.75rem;
+        overflow: hidden;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        background: white;
       }
     </style>
   </head>
-  <body class="antialiased text-gray-800">
-    <header class="bg-white shadow-sm py-4 sticky top-0 z-50">
-      <div class="container flex justify-between items-center">
-        <a
-          href="#"
-          class="text-3xl logo-font text-green-600 rounded-lg p-2 hover:bg-gray-100 transition-colors"
-          >Fit with Mo!</a
-        >
-        <nav>
-          <ul class="flex space-x-6 text-sm items-center">
+  <body class="antialiased">
+    <!-- Decorative background elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+      <div class="decoration-dot" style="top: 15%; left: 10%"></div>
+      <div
+        class="decoration-dot"
+        style="top: 40%; right: 15%; width: 12px; height: 12px"
+      ></div>
+      <div
+        class="decoration-dot"
+        style="bottom: 20%; left: 20%; width: 6px; height: 6px"
+      ></div>
+      <div class="decoration-dot" style="top: 70%; right: 25%"></div>
+    </div>
+
+    <div class="relative z-10">
+      <!-- Header -->
+      <header
+        class="bg-white/80 backdrop-blur-xl py-4 sticky top-0 z-50 border-b border-gray-100/80"
+      >
+        <div class="container mx-auto px-4 flex justify-between items-center">
+          <a
+            href="#"
+            class="text-2xl md:text-3xl font-heading font-extrabold bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent"
+            >Fit with Mo</a
+          >
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden lg:block">
+            <ul class="flex items-center space-x-8 text-sm font-medium">
+              <li>
+                <a
+                  href="#about"
+                  class="nav-link text-gray-700 hover:text-primary-600"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  class="nav-link text-gray-700 hover:text-primary-600"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#pricing"
+                  class="nav-link text-gray-700 hover:text-primary-600"
+                  >Pricing</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#testimonials"
+                  class="nav-link text-gray-700 hover:text-primary-600"
+                  >Results</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="btn-primary ml-2">Book a Call</a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Mobile menu button -->
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-gray-700"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="mobile-menu container mx-auto px-4">
+          <ul class="flex flex-col space-y-4 text-center">
             <li>
               <a
                 href="#about"
-                class="text-gray-700 hover:text-green-600 font-medium transition-colors px-3 py-2"
+                class="block py-2 text-gray-700 hover:text-primary-600 font-medium"
                 >About</a
               >
             </li>
             <li>
               <a
-                href="#why"
-                class="text-gray-700 hover:text-green-600 font-medium transition-colors px-3 py-2"
-                >Why</a
-              >
-            </li>
-            <li>
-              <a
                 href="#services"
-                class="text-gray-700 hover:text-green-600 font-medium transition-colors px-3 py-2"
+                class="block py-2 text-gray-700 hover:text-primary-600 font-medium"
                 >Services</a
               >
             </li>
             <li>
               <a
+                href="#pricing"
+                class="block py-2 text-gray-700 hover:text-primary-600 font-medium"
+                >Pricing</a
+              >
+            </li>
+            <li>
+              <a
                 href="#testimonials"
-                class="text-gray-700 hover:text-green-600 font-medium transition-colors px-3 py-2"
+                class="block py-2 text-gray-700 hover:text-primary-600 font-medium"
                 >Results</a
               >
             </li>
             <li>
               <a
-                href="#faq"
-                class="text-gray-700 hover:text-green-600 font-medium transition-colors px-3 py-2"
-                >FAQ</a
-              >
-            </li>
-            <li>
-              <a href="#contact" class="btn-primary text-sm ml-2"
+                href="#contact"
+                class="btn-primary block w-full max-w-xs mx-auto mt-2"
                 >Book a Call</a
               >
             </li>
           </ul>
-        </nav>
-      </div>
-    </header>
-
-    <section
-      class="relative bg-gradient-to-r from-green-500 to-emerald-600 text-white text-center overflow-hidden"
-    >
-      <div class="container py-20 md:py-32">
-        <div class="hero-content">
-          <h1
-            class="text-4xl md:text-5xl font-extrabold leading-tight mb-6 text-shadow-lg"
-          >
-            Transform Your Health & Fitness
-          </h1>
-          <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto text-green-100">
-            Unlock your full potential with customized fitness plans, expert
-            nutrition guidance, and sustainable lifestyle strategies designed
-            just for you.
-          </p>
-          <a
-            href="#contact"
-            class="btn-primary text-base px-8 py-4 inline-block"
-            >Start Your Transformation Today!</a
-          >
         </div>
-      </div>
-      <div
-        class="absolute bottom-0 left-0 w-full h-24 bg-white"
-        style="clip-path: polygon(0 100%, 100% 100%, 100% 0)"
-      ></div>
-    </section>
+      </header>
 
-    <section id="about" class="py-16 md:py-24 bg-white">
-      <div class="container flex flex-col md:flex-row items-center gap-12">
-        <div class="md:w-1/2">
-          <div class="carousel-container">
-            <div class="carousel-track">
-              <div class="carousel-slide">
-                <img src="media/290A2304.JPG" alt="Coach Mo 1" />
+      <!-- Hero Section -->
+      <section
+        class="relative bg-gradient-to-br from-primary-600 to-emerald-700 text-white overflow-hidden"
+      >
+        <div class="absolute inset-0 opacity-10">
+          <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1),transparent_40%)]"
+          ></div>
+        </div>
+
+        <div class="container mx-auto px-4 py-20 md:py-32 relative z-10">
+          <div class="max-w-4xl mx-auto text-center reveal">
+            <h1
+              class="text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold mb-6 leading-tight"
+            >
+              Transform Your Health <br class="hidden md:block" />
+              & Fitness Journey
+            </h1>
+            <p
+              class="text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-95 font-light"
+            >
+              Personal training and health coaching designed for real life,
+              sustainable results, and total confidence. No fads, just
+              science-backed strategies that fit your lifestyle.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+              <a href="#contact" class="btn-primary text-lg px-8 py-4"
+                >Start Your Journey</a
+              >
+              <a href="#services" class="btn-secondary text-lg px-8 py-4"
+                >Explore Services</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Wave divider -->
+        <div class="absolute bottom-0 left-0 w-full">
+          <svg
+            viewBox="0 0 1440 120"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-full h-auto"
+          >
+            <path
+              d="M0 60L48 56.7C96 53.3 192 46.7 288 45C384 43.3 480 46.7 576 53.3C672 60 768 70 864 73.3C960 76.7 1056 73.3 1152 66.7C1248 60 1344 50 1392 45L1440 40V120H1392C1344 120 1248 120 1152 120C1056 120 960 120 864 120C768 120 672 120 576 120C480 120 384 120 288 120C192 120 96 120 48 120H0V60Z"
+              fill="white"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <!-- About Section - Single Image -->
+      <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+          <div class="flex flex-col lg:flex-row items-center gap-16">
+            <div class="lg:w-1/2 reveal">
+              <div class="hero-image-container">
+                <img
+                  src="media/290A2313.JPG"
+                  alt="Coach Mo - Personal Training & Health Coach"
+                  class="w-full h-auto object-cover aspect-[4/5]"
+                  loading="lazy"
+                />
               </div>
-              <div class="carousel-slide">
-                <img src="media/290A2308.JPG" alt="Coach Mo 2" />
-              </div>
-              <div class="carousel-slide">
-                <img src="media/290A2313.JPG" alt="Coach Mo 3" />
-              </div>
-              <div class="carousel-slide">
-                <img src="media/290A2304.JPG" alt="Coach Mo 1 clone" />
-              </div>
-              <div class="carousel-slide">
-                <img src="media/290A2308.JPG" alt="Coach Mo 2 clone" />
-              </div>
-              <div class="carousel-slide">
-                <img src="media/290A2313.JPG" alt="Coach Mo 3 clone" />
+            </div>
+            <div class="lg:w-1/2 reveal">
+              <h2
+                class="text-3xl md:text-4xl font-heading font-bold mb-6 text-gray-900"
+              >
+                Meet Coach Mo
+              </h2>
+              <p class="text-gray-600 mb-5 leading-relaxed text-lg">
+                Hi, I'm Mo! I specialize in helping busy professionals reclaim
+                their health through a holistic, sustainable approach. No
+                restrictive diets or unsustainable routines—just science-backed
+                strategies, genuine accountability, and movement that fits
+                seamlessly into your life.
+              </p>
+              <p class="text-gray-700 mb-8 leading-relaxed font-medium">
+                <span class="text-primary-600 font-bold"
+                  >Certified Personal Trainer</span
+                >
+                |
+                <span class="text-primary-600 font-bold">Health Coach</span>
+                |
+                <span class="text-primary-600 font-bold"
+                  >Lifestyle Strategist</span
+                >
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <span
+                  class="px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-medium"
+                  >Strength Training</span
+                >
+                <span
+                  class="px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-medium"
+                  >Nutrition Coaching</span
+                >
+                <span
+                  class="px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-medium"
+                  >Mindset Work</span
+                >
+                <span
+                  class="px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-medium"
+                  >Habit Building</span
+                >
               </div>
             </div>
           </div>
         </div>
-        <div class="md:w-1/2 text-center md:text-left">
-          <h2 class="section-header text-left">Meet Your Coach, Mo</h2>
-          <p class="text-base leading-relaxed mb-6">
-            Hi, I'm Mo! My passion is empowering individuals to achieve their
-            health and fitness goals through a holistic and sustainable
-            approach. With years of experience as a
-            <strong class="text-green-600">Certified Personal Trainer</strong>,
-            <strong class="text-green-600">Health Coach</strong>, and
-            <strong class="text-green-600">Lifestyle Coach</strong>.
-          </p>
-          <p class="text-base leading-relaxed">
-            My philosophy centers on building strong foundations: consistent
-            movement, balanced nutrition, and a positive mindset. I'm here to
-            provide the expert guidance and accountability you need to reach
-            your goals.
-          </p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="why" class="py-16 md:py-24 bg-gray-50">
-      <div class="container text-center">
-        <h2 class="section-header">Why Choose Fit with Mo?</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
-          <div class="card">
-            <h3 class="text-xl font-semibold text-green-600 mb-4">
-              Personalized Approach
-            </h3>
-            <p class="text-gray-700">
-              Every plan is tailored to your unique goals, lifestyle, and
-              preferences.
-            </p>
-          </div>
-          <div class="card">
-            <h3 class="text-xl font-semibold text-green-600 mb-4">
-              Proven Expertise
-            </h3>
-            <p class="text-gray-700">
-              Backed by certifications and years of experience delivering real
-              results.
-            </p>
-          </div>
-          <div class="card">
-            <h3 class="text-xl font-semibold text-green-600 mb-4">
-              Holistic Support
-            </h3>
-            <p class="text-gray-700">
-              Beyond physical training, we focus on mindset and nutrition for
-              long-term success.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+      <!-- Services Section -->
+      <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <h2 class="section-header reveal">How I Can Help You</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            <div class="glass-card p-8 reveal">
+              <div
+                class="w-14 h-14 rounded-2xl bg-primary-100 flex items-center justify-center mb-6"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-7 w-7 text-primary-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
+                </svg>
+              </div>
+              <h3 class="font-heading font-bold text-xl mb-3 text-gray-900">
+                Personal Training
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                Customized workout programs designed to build strength, improve
+                mobility, and create the physique you've always wanted—with
+                proper form and injury prevention at the core.
+              </p>
+            </div>
 
-    <section id="services" class="py-16 md:py-24 bg-white">
-      <div class="container text-center">
-        <h2 class="section-header">Your Path to a Healthier You</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
-          <div class="card flex flex-col justify-between">
-            <h3 class="text-xl font-semibold text-green-600 mb-4">
-              Personal Training
-            </h3>
-            <p class="text-gray-700 mb-4">
-              Customized workout plans to build strength and endurance.
-            </p>
-            <ul class="text-left text-gray-600 list-disc list-inside">
-              <li>Form correction</li>
-              <li>Physique goals</li>
-              <li>Online & In-person</li>
-            </ul>
-          </div>
-          <div class="card flex flex-col justify-between">
-            <h3 class="text-xl font-semibold text-green-600 mb-4">
-              Health Coaching
-            </h3>
-            <p class="text-gray-700 mb-4">
-              Sustainable nutrition habits and improved energy levels.
-            </p>
-            <ul class="text-left text-gray-600 list-disc list-inside">
-              <li>Meal planning</li>
-              <li>Stress management</li>
-              <li>Habit formation</li>
-            </ul>
-          </div>
-          <div class="card flex flex-col justify-between">
-            <h3 class="text-xl font-semibold text-green-600 mb-4">
-              Lifestyle Coaching
-            </h3>
-            <p class="text-gray-700 mb-4">
-              Integrate fitness into your daily life for a permanent lifestyle
-              change.
-            </p>
-            <ul class="text-left text-gray-600 list-disc list-inside">
-              <li>Accountability</li>
-              <li>Work-life balance</li>
-              <li>Goal tracking</li>
-            </ul>
+            <div class="glass-card p-8 reveal">
+              <div
+                class="w-14 h-14 rounded-2xl bg-primary-100 flex items-center justify-center mb-6"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-7 w-7 text-primary-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                  />
+                </svg>
+              </div>
+              <h3 class="font-heading font-bold text-xl mb-3 text-gray-900">
+                Health Coaching
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                Sustainable nutrition strategies and stress management
+                techniques that boost energy, improve sleep, and create lasting
+                health—without deprivation or extreme restrictions.
+              </p>
+            </div>
+
+            <div class="glass-card p-8 reveal">
+              <div
+                class="w-14 h-14 rounded-2xl bg-primary-100 flex items-center justify-center mb-6"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-7 w-7 text-primary-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                  />
+                </svg>
+              </div>
+              <h3 class="font-heading font-bold text-xl mb-3 text-gray-900">
+                Lifestyle Strategy
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                We integrate fitness and wellness into your existing routine
+                with practical systems that actually stick—because the best
+                program is the one you'll consistently follow.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="testimonials" class="py-16 md:py-24 bg-gray-50">
-      <div class="container text-center">
-        <h2 class="section-header">Real Transformations</h2>
-        <div class="mb-12">
-          <img
-            src="media/person-working-out.jpg"
-            alt="Client Transformation"
-            class="rounded-3xl shadow-xl w-full max-w-md mx-auto h-auto object-cover"
-          />
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="card flex flex-col justify-between">
-            <p class="testimonial-quote mb-4">
-              "Working with Mo was a game-changer! I've lost 15kg and gained
-              incredible energy."
-            </p>
-            <p class="font-semibold text-sm">- Sarah L.</p>
-          </div>
-          <div class="card flex flex-col justify-between">
-            <p class="testimonial-quote mb-4">
-              "Mo helped me understand nutrition in a way no one else could. No
-              more stress!"
-            </p>
-            <p class="font-semibold text-sm">- David R.</p>
-          </div>
-          <div class="card flex flex-col justify-between">
-            <p class="testimonial-quote mb-4">
-              "Finally, a trainer who listens! The plans fit perfectly into my
-              busy schedule."
-            </p>
-            <p class="font-semibold text-sm">- James W.</p>
-          </div>
-          <div class="card flex flex-col justify-between">
-            <p class="testimonial-quote mb-4">
-              "The holistic approach actually works. I changed my entire
-              relationship with food."
-            </p>
-            <p class="font-semibold text-sm">- Elena M.</p>
-          </div>
-          <div class="card flex flex-col justify-between">
-            <p class="testimonial-quote mb-4">
-              "As a beginner, I was intimidated. Mo made me feel empowered from
-              day one."
-            </p>
-            <p class="font-semibold text-sm">- Michael K.</p>
-          </div>
-          <div class="card flex flex-col justify-between">
-            <p class="testimonial-quote mb-4">
-              "Mo’s sustainable lifestyle coaching is the only thing that has
-              ever stuck."
-            </p>
-            <p class="font-semibold text-sm">- Sophie T.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="py-16 md:py-24 bg-white">
-      <div class="container text-center">
-        <h2 class="section-header">Frequently Asked Questions</h2>
-        <div class="max-w-3xl mx-auto text-left">
-          <div class="faq-item">
-            <p class="faq-question text-lg">How do I get started?</p>
-            <p class="faq-answer">
-              Simply book a free discovery call using the calendar below! We'll
-              discuss your goals and create a custom roadmap.
-            </p>
-          </div>
-          <div class="faq-item">
-            <p class="faq-question text-lg">Do I need a gym membership?</p>
-            <p class="faq-answer">
-              Not necessarily! Plans can be designed for gym, home, or outdoor
-              environments.
-            </p>
-          </div>
-          <div class="faq-item">
-            <p class="faq-question text-lg">
-              Are sessions online or in-person?
-            </p>
-            <p class="faq-answer">
-              We offer both! Online coaching is available globally, and
-              in-person sessions depend on your location.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section
-      id="contact"
-      class="py-16 md:py-24 bg-gradient-to-r from-emerald-600 to-green-500 text-white rounded-t-3xl shadow-lg"
-    >
-      <div class="container text-center">
-        <h2 class="section-header text-white">Book Your Free Discovery Call</h2>
-        <p class="text-lg mb-8 max-w-2xl mx-auto">
-          Select a time that works for you. Let's talk about your fitness
-          journey and how I can help you reach your goals.
-        </p>
-
-        <div
-          class="bg-white rounded-2xl shadow-2xl overflow-hidden mb-12 max-w-4xl mx-auto"
-          style="min-width: 320px; height: 450px"
-        >
+      <!-- Pricing Section -->
+      <section id="pricing" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+          <h2 class="section-header reveal">Simple, Transparent Pricing</h2>
           <div
-            class="calendly-inline-widget"
-            data-url="https://calendly.com/train-with-mo?hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=22c55e"
-            style="min-width: 320px; height: 450px"
-          ></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div
-            class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 flex flex-col items-center"
+            class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12"
           >
-            <h3 class="text-xl font-bold mb-4">Follow My Journey</h3>
+            <div class="pricing-card reveal">
+              <h3 class="font-heading font-bold text-2xl mb-2 text-gray-900">
+                30 Min Session
+              </h3>
+              <div class="text-4xl font-extrabold text-primary-600 mb-4">
+                £35
+              </div>
+              <p class="text-gray-600 mb-6">
+                Perfect for high-intensity training, technique refinement, or
+                quick progress check-ins.
+              </p>
+              <ul class="space-y-3 mb-8 text-left">
+                <li class="flex items-start">
+                  <svg
+                    class="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span class="text-gray-700">Personalized workout plan</span>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span class="text-gray-700"
+                    >Form correction & safety focus</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span class="text-gray-700"
+                    >Post-session notes & next steps</span
+                  >
+                </li>
+              </ul>
+              <a href="#contact" class="btn-secondary w-full block text-center"
+                >Book Session</a
+              >
+            </div>
+
+            <div class="pricing-card featured reveal">
+              <h3 class="font-heading font-bold text-2xl mb-2 text-gray-900">
+                1 Hour Session
+              </h3>
+              <div class="text-4xl font-extrabold text-primary-600 mb-4">
+                £55
+              </div>
+              <p class="text-gray-600 mb-6">
+                Deep dive into training, comprehensive form analysis, and
+                integrated nutrition coaching.
+              </p>
+              <ul class="space-y-3 mb-8 text-left">
+                <li class="flex items-start">
+                  <svg
+                    class="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span class="text-gray-700"
+                    >Full-body assessment & planning</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span class="text-gray-700"
+                    >Nutrition guidance & habit strategies</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span class="text-gray-700"
+                    >Personalized recovery protocols</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span class="text-gray-700"
+                    >Priority scheduling & support</span
+                  >
+                </li>
+              </ul>
+              <a href="#contact" class="btn-primary w-full block text-center"
+                >Book Session</a
+              >
+            </div>
+
+            <div
+              class="pricing-card reveal bg-gradient-to-br from-primary-50 to-emerald-50 border-primary-200"
+            >
+              <h3 class="font-heading font-bold text-2xl mb-2 text-gray-900">
+                Bundle & Save
+              </h3>
+              <div class="text-4xl font-extrabold text-primary-600 mb-4">
+                10% OFF
+              </div>
+              <p class="text-gray-600 mb-6">
+                Commit to your transformation with our package deals and save
+                while staying consistent.
+              </p>
+              <ul class="space-y-3 mb-8 text-left">
+                <li class="flex items-start">
+                  <svg
+                    class="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span class="text-gray-700">3+ sessions booked upfront</span>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span class="text-gray-700"
+                    >Customized progression planning</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span class="text-gray-700">Between-session check-ins</span>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span class="text-gray-700">Flexible scheduling options</span>
+                </li>
+              </ul>
+              <a href="#contact" class="btn-primary w-full block text-center"
+                >Get Started</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section id="testimonials" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <h2 class="section-header reveal">Real Transformations</h2>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12"
+          >
+            <div class="testimonial-card reveal">
+              <p class="testimonial-content mb-6">
+                Working with Mo was a complete game-changer! I've lost 15kg, but
+                more importantly, I've gained incredible energy and confidence.
+                The sustainable approach actually fits my busy schedule as a
+                parent.
+              </p>
+              <div class="flex items-center">
+                <div
+                  class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center font-bold text-primary-700 mr-4"
+                >
+                  SL
+                </div>
+                <div>
+                  <div class="font-bold text-gray-900">Sarah L.</div>
+                  <div class="text-sm text-gray-500">Client since 2024</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card reveal">
+              <p class="testimonial-content mb-6">
+                Finally, a trainer who actually listens! Mo created a program
+                that works with my demanding job, not against it. The focus on
+                mindset and habits made all the difference—I'm stronger than
+                ever.
+              </p>
+              <div class="flex items-center">
+                <div
+                  class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center font-bold text-primary-700 mr-4"
+                >
+                  JW
+                </div>
+                <div>
+                  <div class="font-bold text-gray-900">James W.</div>
+                  <div class="text-sm text-gray-500">Client since 2023</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card reveal">
+              <p class="testimonial-content mb-6">
+                The holistic approach changed my relationship with food and
+                fitness. No more yo-yo dieting! Mo's coaching helped me build
+                sustainable habits that have transformed my health long-term.
+              </p>
+              <div class="flex items-center">
+                <div
+                  class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center font-bold text-primary-700 mr-4"
+                >
+                  EM
+                </div>
+                <div>
+                  <div class="font-bold text-gray-900">Elena M.</div>
+                  <div class="text-sm text-gray-500">Client since 2024</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section id="faq" class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+          <h2 class="section-header reveal">Frequently Asked Questions</h2>
+          <div class="space-y-4 mt-12">
+            <div class="faq-item reveal">
+              <div class="faq-question">
+                <span>How do I get started with coaching?</span>
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  It's simple! Book a free 15-minute discovery call using the
+                  calendar below. We'll discuss your goals, answer your
+                  questions, and create a personalized plan to get you started
+                  on your transformation journey.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item reveal">
+              <div class="faq-question">
+                <span>Do you offer online or in-person sessions?</span>
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  I offer both! Virtual sessions provide flexibility and
+                  accessibility from anywhere, while in-person sessions
+                  (available in select locations) allow for hands-on form
+                  correction. We'll determine the best format for your needs
+                  during our consultation.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item reveal">
+              <div class="faq-question">
+                <span>What if I'm a complete beginner?</span>
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Perfect! I specialize in helping beginners build confidence
+                  and foundational skills. We'll start at your current level and
+                  progress at a pace that feels challenging yet achievable.
+                  Every expert was once a beginner.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item reveal">
+              <div class="faq-question">
+                <span>How soon will I see results?</span>
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  While everyone's journey is unique, most clients notice
+                  improved energy and confidence within 2-3 weeks. Physical
+                  transformations typically become visible around 6-8 weeks with
+                  consistent effort. Remember: sustainable change is a marathon,
+                  not a sprint—and I'm with you every step of the way.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact/Booking Section -->
+      <section
+        id="contact"
+        class="py-20 bg-gradient-to-br from-primary-600 to-emerald-700 text-white relative overflow-hidden"
+      >
+        <!-- Decorative elements -->
+        <div
+          class="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"
+        ></div>
+        <div
+          class="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"
+        ></div>
+
+        <div class="container mx-auto px-4 text-center relative z-10">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4 reveal">
+            Ready to Transform Your Life?
+          </h2>
+          <p class="text-lg opacity-95 mb-12 max-w-2xl mx-auto reveal">
+            Book your free discovery call today and take the first step toward a
+            stronger, healthier, more confident you.
+          </p>
+
+          <div class="calendly-container max-w-4xl mx-auto reveal">
+            <div
+              class="calendly-inline-widget"
+              data-url="https://calendly.com/train-with-mo?hide_landing_page_details=1&hide_gdpr_banner=1"
+              style="min-width: 320px; height: 650px"
+            ></div>
+          </div>
+
+          <div
+            class="mt-16 flex flex-col md:flex-row justify-center gap-4 reveal"
+          >
+            <a
+              href="mailto:info@trainwithmo.co.uk"
+              class="flex items-center justify-center gap-3 bg-white/15 hover:bg-white/25 px-6 py-4 rounded-2xl border border-white/20 transition-all duration-300 backdrop-blur-sm"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+              <span class="font-medium">info@trainwithmo.co.uk</span>
+            </a>
             <a
               href="https://instagram.com/haden_shamden"
-              target="_blank"
-              class="hover:scale-110 transition-transform"
+              class="flex items-center justify-center gap-3 bg-white/15 hover:bg-white/25 px-6 py-4 rounded-2xl border border-white/20 transition-all duration-300 backdrop-blur-sm"
             >
-              <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
                 <path
-                  d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.805.249 2.227.412.56.216.96.474 1.38.894.42.42.678.82.894 1.38.163.422.358 1.057.412 2.227.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.249 1.805-.412 2.227-.216.56-.474.96-.894 1.38-.42.42-.82.678-1.38.894-.422.163-1.057.358-2.227.412-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.805-.249-2.227-.412-.56-.216-.96-.474-1.38-.894-.42-.42-.678-.82-.894-1.38-.163-.422-.358-1.057-.412-2.227-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.054-1.17.249-1.805.412-2.227.216-.56.474-.96.894-1.38.42-.42.82-.678 1.38-.894.422-.163 1.057-.358 2.227-.412 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.277.057-2.15.26-2.914.558-.79.306-1.459.717-2.126 1.384-.667.667-1.078 1.335-1.384 2.126-.298.763-.501 1.637-.558 2.914-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.057 1.277.26 2.15.558 2.914.306.79.717 1.459 1.384 2.126.667.667 1.335 1.078 2.126 1.384.763.298 1.637.501 2.914.558 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.277-.057 2.15-.26 2.914-.558.791-.306 1.459-.717 2.126-1.384.667-.667 1.078-1.335 1.384-2.126.298-.763.501-1.637.558-2.914.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.057-1.277-.26-2.15-.558-2.914-.306-.79-.717-1.459-1.384-2.126-.667-.667-1.335-1.078-2.126-1.384-.763-.298-1.637-.501-2.914-.558-1.28-.058-1.688-.072-4.947-.072zM12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                />
+                <circle cx="4" cy="4" r="2" stroke="none" />
+              </svg>
+              <span class="font-medium">@haden_shamden</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-gray-400 py-10">
+        <div class="container mx-auto px-4 text-center">
+          <div class="flex justify-center space-x-6 mb-6">
+            <a href="#" class="hover:text-white transition-colors">
+              <span class="sr-only">Instagram</span>
+              <svg
+                class="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                  clip-rule="evenodd"
                 />
               </svg>
             </a>
-            <p class="mt-4 text-sm font-medium">@haden_shamden</p>
-          </div>
-
-          <div
-            class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 flex flex-col items-center"
-          >
-            <h3 class="text-xl font-bold mb-4">Email Me</h3>
-            <a
-              href="mailto:info@trainwithmo.co.uk"
-              class="bg-white text-green-600 px-6 py-3 rounded-full font-bold hover:bg-green-50 transition-colors"
-            >
-              info@trainwithmo.co.uk
+            <a href="#" class="hover:text-white transition-colors">
+              <span class="sr-only">Email</span>
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
             </a>
-            <p class="mt-4 text-sm font-medium">Get a response within 24h</p>
           </div>
+          <p class="text-sm">&copy; 2025 Fit with Mo. All rights reserved.</p>
+          <p class="text-xs mt-2 opacity-70">
+            Designed with ❤️ for sustainable health transformations
+          </p>
         </div>
-      </div>
-    </section>
+      </footer>
+    </div>
 
-    <footer class="bg-gray-800 text-white py-8 text-center">
-      <div class="container text-sm">
-        <p>© 2025 Fit with Mo. All rights reserved.</p>
-        <p class="text-xs mt-2 text-gray-400">
-          Designed for your success in personal training, health coaching, and
-          lifestyle transformation.
-        </p>
-      </div>
-    </footer>
+    <script>
+      // Mobile menu toggle
+      document
+        .getElementById("mobile-menu-btn")
+        .addEventListener("click", function () {
+          document.getElementById("mobile-menu").classList.toggle("active");
+        });
+
+      // FAQ accordion functionality
+      document.querySelectorAll(".faq-question").forEach((question) => {
+        question.addEventListener("click", () => {
+          const item = question.parentElement;
+          const isActive = item.classList.contains("active");
+
+          // Close all items
+          document.querySelectorAll(".faq-item").forEach((i) => {
+            i.classList.remove("active");
+          });
+
+          // Toggle current item if it wasn't active
+          if (!isActive) {
+            item.classList.add("active");
+          }
+        });
+      });
+
+      // Scroll reveal animation
+      const revealElements = document.querySelectorAll(".reveal");
+
+      const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        const elementVisible = 150;
+
+        revealElements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+          if (elementTop < windowHeight - elementVisible) {
+            element.classList.add("active");
+          }
+        });
+      };
+
+      // Initial check and scroll listener
+      window.addEventListener("load", revealOnScroll);
+      window.addEventListener("scroll", revealOnScroll);
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+            // Close mobile menu if open
+            document.getElementById("mobile-menu").classList.remove("active");
+          }
+        });
+      });
+    </script>
   </body>
 </html>
