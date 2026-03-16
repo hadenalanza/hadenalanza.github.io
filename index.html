@@ -3,29 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fit with Mo | Your Personal Training & Health Coach!</title>
+    <title>Fit with Mo | Personal Training & Health Coaching</title>
     <link
       rel="icon"
       href="https://placehold.co/32x32/22c55e/FFFFFF?text=FM"
       type="image/png"
     />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://assets.calendly.com/assets/external/widget.css"
-      rel="stylesheet"
-    />
-    <script
-      src="https://assets.calendly.com/assets/external/widget.js"
-      type="text/javascript"
-      async
-    ></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Manrope:wght@700;800&display=swap"
       rel="stylesheet"
     />
-
     <script>
       tailwind.config = {
         theme: {
@@ -54,14 +44,8 @@
             },
             keyframes: {
               fadeInUp: {
-                "0%": {
-                  opacity: "0",
-                  transform: "translateY(20px)",
-                },
-                "100%": {
-                  opacity: "1",
-                  transform: "translateY(0)",
-                },
+                "0%": { opacity: "0", transform: "translateY(20px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
               },
               float: {
                 "0%, 100%": { transform: "translateY(0)" },
@@ -72,7 +56,6 @@
         },
       };
     </script>
-
     <style>
       body {
         font-family: "Plus Jakarta Sans", sans-serif;
@@ -80,7 +63,6 @@
         color: #1e293b;
         overflow-x: hidden;
       }
-
       .font-heading {
         font-family: "Manrope", sans-serif;
       }
@@ -93,25 +75,24 @@
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
         transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
       }
-
       .glass-card:hover {
         transform: translateY(-6px);
         box-shadow: 0 20px 40px rgba(22, 163, 74, 0.15);
         border-color: rgba(34, 197, 94, 0.3);
       }
 
-      /* Hero image styling */
+      /* Hero image: Rounded rectangle (not oval) */
       .hero-image-container {
         position: relative;
-        border-radius: 50%; /* Makes it a perfect circle */
+        border-radius: 1.5rem; /* Rounded rectangle */
         overflow: hidden;
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         animation: float 6s ease-in-out infinite;
-        aspect-square: 1/1; /* Ensures equal width/height */
-        width: min(400px, 90%); /* Controls max size */
-        margin: 0 auto; /* Centers it */
+        aspect-ratio: 4/5;
+        width: min(400px, 90%);
+        margin: 0 auto;
+        background: linear-gradient(135deg, #f0fdf4, #dcfce7);
       }
-
       .hero-image-container::before {
         content: "";
         position: absolute;
@@ -123,14 +104,12 @@
         );
         z-index: 1;
       }
-
       .hero-image-container img {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Prevents image distortion */
+        object-fit: cover;
         transition: transform 0.7s ease;
       }
-
       .hero-image-container:hover img {
         transform: scale(1.03);
       }
@@ -146,8 +125,12 @@
         box-shadow: 0 4px 20px rgba(34, 197, 94, 0.35);
         position: relative;
         overflow: hidden;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        text-decoration: none;
       }
-
       .btn-primary::after {
         content: "";
         position: absolute;
@@ -160,12 +143,10 @@
         opacity: 0;
         transition: opacity 0.3s ease;
       }
-
       .btn-primary:hover {
         transform: translateY(-2px);
         box-shadow: 0 8px 25px rgba(34, 197, 94, 0.45);
       }
-
       .btn-primary:hover::after {
         opacity: 1;
       }
@@ -178,8 +159,12 @@
         border-radius: 9999px;
         font-weight: 600;
         transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        text-decoration: none;
       }
-
       .btn-secondary:hover {
         background: #f0fdf4;
         transform: translateY(-2px);
@@ -196,7 +181,6 @@
         margin-bottom: 3rem;
         text-align: center;
       }
-
       .section-header::after {
         content: "";
         position: absolute;
@@ -214,11 +198,9 @@
         border-bottom: 1px solid #e2e8f0;
         transition: all 0.3s ease;
       }
-
       .faq-item:last-child {
         border-bottom: none;
       }
-
       .faq-question {
         font-weight: 600;
         cursor: pointer;
@@ -228,11 +210,9 @@
         padding: 1.25rem 0;
         transition: color 0.2s ease;
       }
-
       .faq-question:hover {
         color: #16a34a;
       }
-
       .faq-answer {
         max-height: 0;
         overflow: hidden;
@@ -242,12 +222,10 @@
         color: #475569;
         line-height: 1.6;
       }
-
       .faq-item.active .faq-answer {
-        max-height: 200px;
+        max-height: 300px;
         padding: 0 0 1.25rem 0;
       }
-
       .faq-toggle {
         width: 24px;
         height: 24px;
@@ -260,7 +238,6 @@
         transition: all 0.3s ease;
         flex-shrink: 0;
       }
-
       .faq-item.active .faq-toggle {
         background: #22c55e;
         color: white;
@@ -276,7 +253,6 @@
         transition: all 0.3s ease;
         position: relative;
       }
-
       .testimonial-card::before {
         content: '"';
         position: absolute;
@@ -288,12 +264,10 @@
         line-height: 1;
         z-index: 0;
       }
-
       .testimonial-card:hover {
         transform: translateY(-4px);
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
       }
-
       .testimonial-content {
         position: relative;
         z-index: 1;
@@ -309,7 +283,6 @@
         font-weight: 500;
         transition: color 0.3s ease;
       }
-
       .nav-link::after {
         content: "";
         position: absolute;
@@ -320,28 +293,28 @@
         background: #22c55e;
         transition: width 0.3s ease;
       }
-
       .nav-link:hover::after {
         width: 100%;
       }
 
-      /* Pricing cards */
+      /* Pricing cards - modernized */
       .pricing-card {
         background: white;
         border-radius: 2rem;
-        padding: 2.5rem 2rem;
+        padding: 2rem;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         transition: all 0.4s ease;
         position: relative;
         border: 1px solid #e2e8f0;
+        display: flex;
+        flex-direction: column;
       }
-
       .pricing-card.featured {
         border: 2px solid #22c55e;
-        transform: scale(1.03);
+        transform: scale(1.02);
         z-index: 10;
+        box-shadow: 0 20px 40px rgba(34, 197, 94, 0.15);
       }
-
       .pricing-card.featured::before {
         content: "Most Popular";
         position: absolute;
@@ -356,14 +329,41 @@
         border-radius: 9999px;
         box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
       }
-
       .pricing-card:hover {
         transform: translateY(-8px);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
       }
-
       .pricing-card.featured:hover {
-        transform: scale(1.05) translateY(-8px);
+        transform: scale(1.04) translateY(-8px);
+      }
+      .pricing-price {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #16a34a;
+        margin: 0.5rem 0;
+      }
+      .pricing-period {
+        color: #64748b;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+      .pricing-features {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+        flex-grow: 1;
+      }
+      .pricing-features li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+        color: #475569;
+        font-size: 0.95rem;
+      }
+      .pricing-features svg {
+        flex-shrink: 0;
+        margin-top: 0.25rem;
       }
 
       /* Mobile menu */
@@ -372,7 +372,6 @@
         max-height: 0;
         overflow: hidden;
       }
-
       .mobile-menu.active {
         max-height: 400px;
         padding: 1.5rem 0;
@@ -384,7 +383,6 @@
         transform: translateY(30px);
         transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
       }
-
       .reveal.active {
         opacity: 1;
         transform: translateY(0);
@@ -400,12 +398,35 @@
         opacity: 0.6;
       }
 
-      /* Calendly widget styling */
-      .calendly-container {
-        border-radius: 1.75rem;
-        overflow: hidden;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      /* Payment badges */
+      .payment-badges {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+      }
+      .payment-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.25rem 0.75rem;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        color: #475569;
+        font-weight: 500;
+      }
+
+      /* Direct booking section */
+      .booking-cta {
         background: white;
+        border-radius: 1.75rem;
+        padding: 2rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        max-width: 48rem;
+        margin: 0 auto;
       }
     </style>
   </head>
@@ -468,7 +489,28 @@
                 >
               </li>
               <li>
-                <a href="#contact" class="btn-primary ml-2">Book a Call</a>
+                <a
+                  href="https://calendly.com/train-with-mo/60min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-primary"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
+                  Book Now
+                </a>
               </li>
             </ul>
           </nav>
@@ -528,10 +570,13 @@
             </li>
             <li>
               <a
-                href="#contact"
+                href="https://calendly.com/train-with-mo/60min"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="btn-primary block w-full max-w-xs mx-auto mt-2"
-                >Book a Call</a
               >
+                Book Now
+              </a>
             </li>
           </ul>
         </div>
@@ -546,7 +591,6 @@
             class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1),transparent_40%)]"
           ></div>
         </div>
-
         <div class="container mx-auto px-4 py-20 md:py-32 relative z-10">
           <div class="max-w-4xl mx-auto text-center reveal">
             <h1
@@ -563,16 +607,20 @@
               science-backed strategies that fit your lifestyle.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-              <a href="#contact" class="btn-primary text-lg px-8 py-4"
-                >Start Your Journey</a
+              <a
+                href="https://calendly.com/train-with-mo/60min"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary text-lg px-8 py-4"
               >
+                Start Your Journey
+              </a>
               <a href="#services" class="btn-secondary text-lg px-8 py-4"
                 >Explore Services</a
               >
             </div>
           </div>
         </div>
-
         <!-- Wave divider -->
         <div class="absolute bottom-0 left-0 w-full">
           <svg
@@ -589,16 +637,15 @@
         </div>
       </section>
 
-      <!-- About Section - Single Image -->
+      <!-- About Section - Rectangle Image -->
       <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-4">
           <div class="flex flex-col lg:flex-row items-center gap-16">
             <div class="lg:w-1/2 reveal">
               <div class="hero-image-container">
                 <img
-                  src="media/290A2313.JPG"
+                  src="media/profile.jpg"
                   alt="Coach Mo - Personal Training & Health Coach"
-                  class="w-full h-auto object-cover aspect-[4/5]"
                   loading="lazy"
                 />
               </div>
@@ -620,9 +667,7 @@
                 <span class="text-primary-600 font-bold"
                   >Certified Personal Trainer</span
                 >
-                |
-                <span class="text-primary-600 font-bold">Health Coach</span>
-                |
+                | <span class="text-primary-600 font-bold">Health Coach</span> |
                 <span class="text-primary-600 font-bold"
                   >Lifestyle Strategist</span
                 >
@@ -683,7 +728,6 @@
                 proper form and injury prevention at the core.
               </p>
             </div>
-
             <div class="glass-card p-8 reveal">
               <div
                 class="w-14 h-14 rounded-2xl bg-primary-100 flex items-center justify-center mb-6"
@@ -712,7 +756,6 @@
                 health—without deprivation or extreme restrictions.
               </p>
             </div>
-
             <div class="glass-card p-8 reveal">
               <div
                 class="w-14 h-14 rounded-2xl bg-primary-100 flex items-center justify-center mb-6"
@@ -745,28 +788,31 @@
         </div>
       </section>
 
-      <!-- Pricing Section -->
+      <!-- Pricing Section - 4 Cards with Direct Calendly Links -->
       <section id="pricing" class="py-20 bg-white">
         <div class="container mx-auto px-4">
           <h2 class="section-header reveal">Simple, Transparent Pricing</h2>
-          <div
-            class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12"
-          >
+          <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12 reveal">
+            Choose the package that fits your goals. All sessions include
+            personalized programming, form coaching, and progress tracking.
+          </p>
+
+          <!-- 2x2 Grid for Desktop, 1x4 for Mobile -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+            <!-- Card 1: 30 Min Session -->
             <div class="pricing-card reveal">
-              <h3 class="font-heading font-bold text-2xl mb-2 text-gray-900">
+              <h3 class="font-heading font-bold text-xl mb-1 text-gray-900">
                 30 Min Session
               </h3>
-              <div class="text-4xl font-extrabold text-primary-600 mb-4">
-                £35
-              </div>
-              <p class="text-gray-600 mb-6">
-                Perfect for high-intensity training, technique refinement, or
-                quick progress check-ins.
+              <div class="pricing-price">£25</div>
+              <p class="text-gray-600 mb-4 text-sm">
+                Perfect for quick check-ins, technique refinement, or
+                high-intensity focus.
               </p>
-              <ul class="space-y-3 mb-8 text-left">
-                <li class="flex items-start">
+              <ul class="pricing-features">
+                <li>
                   <svg
-                    class="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
+                    class="h-5 w-5 text-primary-500"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -778,11 +824,11 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span class="text-gray-700">Personalized workout plan</span>
+                  <span>Personalized workout plan</span>
                 </li>
-                <li class="flex items-start">
+                <li>
                   <svg
-                    class="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
+                    class="h-5 w-5 text-primary-500"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -794,13 +840,11 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span class="text-gray-700"
-                    >Form correction & safety focus</span
-                  >
+                  <span>Form correction & safety focus</span>
                 </li>
-                <li class="flex items-start">
+                <li>
                   <svg
-                    class="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
+                    class="h-5 w-5 text-primary-500"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -812,31 +856,33 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span class="text-gray-700"
-                    >Post-session notes & next steps</span
-                  >
+                  <span>Post-session notes</span>
                 </li>
               </ul>
-              <a href="#contact" class="btn-secondary w-full block text-center"
-                >Book Session</a
+              <a
+                href="https://calendly.com/train-with-mo/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-secondary w-full justify-center"
               >
+                Book 30 Min
+              </a>
             </div>
 
+            <!-- Card 2: 1 Hour Session (Featured) -->
             <div class="pricing-card featured reveal">
-              <h3 class="font-heading font-bold text-2xl mb-2 text-gray-900">
+              <h3 class="font-heading font-bold text-xl mb-1 text-gray-900">
                 1 Hour Session
               </h3>
-              <div class="text-4xl font-extrabold text-primary-600 mb-4">
-                £55
-              </div>
-              <p class="text-gray-600 mb-6">
-                Deep dive into training, comprehensive form analysis, and
-                integrated nutrition coaching.
+              <div class="pricing-price">£45</div>
+              <p class="text-gray-600 mb-4 text-sm">
+                Deep dive training, comprehensive form analysis, and integrated
+                nutrition coaching.
               </p>
-              <ul class="space-y-3 mb-8 text-left">
-                <li class="flex items-start">
+              <ul class="pricing-features">
+                <li>
                   <svg
-                    class="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
+                    class="h-5 w-5 text-primary-500"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -848,13 +894,11 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span class="text-gray-700"
-                    >Full-body assessment & planning</span
-                  >
+                  <span>Full-body assessment & planning</span>
                 </li>
-                <li class="flex items-start">
+                <li>
                   <svg
-                    class="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
+                    class="h-5 w-5 text-primary-500"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -866,13 +910,11 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span class="text-gray-700"
-                    >Nutrition guidance & habit strategies</span
-                  >
+                  <span>Nutrition guidance & habit strategies</span>
                 </li>
-                <li class="flex items-start">
+                <li>
                   <svg
-                    class="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
+                    class="h-5 w-5 text-primary-500"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -884,13 +926,11 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span class="text-gray-700"
-                    >Personalized recovery protocols</span
-                  >
+                  <span>Personalized recovery protocols</span>
                 </li>
-                <li class="flex items-start">
+                <li>
                   <svg
-                    class="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
+                    class="h-5 w-5 text-primary-500"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -902,33 +942,34 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span class="text-gray-700"
-                    >Priority scheduling & support</span
-                  >
+                  <span>Priority scheduling & support</span>
                 </li>
               </ul>
-              <a href="#contact" class="btn-primary w-full block text-center"
-                >Book Session</a
+              <a
+                href="https://calendly.com/train-with-mo/60min"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary w-full justify-center"
               >
+                Book 1 Hour
+              </a>
             </div>
 
+            <!-- Card 3: 3-Session Bundle -->
             <div
               class="pricing-card reveal bg-gradient-to-br from-primary-50 to-emerald-50 border-primary-200"
             >
-              <h3 class="font-heading font-bold text-2xl mb-2 text-gray-900">
-                Bundle & Save
+              <h3 class="font-heading font-bold text-xl mb-1 text-gray-900">
+                3-Session Starter
               </h3>
-              <div class="text-4xl font-extrabold text-primary-600 mb-4">
-                10% OFF
-              </div>
-              <p class="text-gray-600 mb-6">
-                Commit to your transformation with our package deals and save
-                while staying consistent.
+              <div class="pricing-price">£114.75</div>
+              <p class="text-gray-600 mb-4 text-sm">
+                Save 15% when you commit to your transformation upfront.
               </p>
-              <ul class="space-y-3 mb-8 text-left">
-                <li class="flex items-start">
+              <ul class="pricing-features">
+                <li>
                   <svg
-                    class="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
+                    class="h-5 w-5 text-primary-500"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -940,11 +981,174 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span class="text-gray-700">3+ sessions booked upfront</span>
+                  <span>3 pre-paid sessions</span>
                 </li>
-                <li class="flex items-start">
+                <li>
                   <svg
-                    class="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
+                    class="h-5 w-5 text-primary-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span>15% discount applied</span>
+                </li>
+                <li>
+                  <svg
+                    class="h-5 w-5 text-primary-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span>Priority support between sessions</span>
+                </li>
+                <li>
+                  <svg
+                    class="h-5 w-5 text-primary-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span>Valid for 3 months</span>
+                </li>
+              </ul>
+              <a
+                href="https://calendly.com/train-with-mo/3-session-starter-bundle"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary w-full justify-center"
+              >
+                Get Bundle
+              </a>
+            </div>
+
+            <!-- Card 4: 10-Session Bundle -->
+            <div
+              class="pricing-card reveal bg-gradient-to-br from-primary-100 to-emerald-100 border-primary-300"
+            >
+              <h3 class="font-heading font-bold text-xl mb-1 text-gray-900">
+                10-Session Transformation
+              </h3>
+              <div class="pricing-price">£360</div>
+              <p class="text-gray-600 mb-4 text-sm">
+                Maximum savings for maximum commitment. Save 20% + priority
+                scheduling.
+              </p>
+              <ul class="pricing-features">
+                <li>
+                  <svg
+                    class="h-5 w-5 text-primary-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span>10 pre-paid sessions</span>
+                </li>
+                <li>
+                  <svg
+                    class="h-5 w-5 text-primary-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span>20% discount applied</span>
+                </li>
+                <li>
+                  <svg
+                    class="h-5 w-5 text-primary-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span>Priority scheduling & support</span>
+                </li>
+                <li>
+                  <svg
+                    class="h-5 w-5 text-primary-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span>Valid for 6 months</span>
+                </li>
+              </ul>
+              <a
+                href="https://calendly.com/train-with-mo/10-session-starter-bundle"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary w-full justify-center"
+              >
+                Get Bundle
+              </a>
+            </div>
+          </div>
+
+          <!-- VIP Subscription Callout -->
+          <div class="mt-12 text-center reveal">
+            <div
+              class="glass-card p-6 md:p-8 max-w-3xl mx-auto border-2 border-primary-300"
+            >
+              <h3 class="font-heading font-bold text-xl mb-2 text-gray-900">
+                🌟 VIP Monthly Membership
+              </h3>
+              <p class="text-gray-600 mb-4">
+                <span class="text-2xl font-extrabold text-primary-600"
+                  >£100/month</span
+                >
+                • Cancel anytime
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left mb-6">
+                <div class="flex items-start gap-3">
+                  <svg
+                    class="h-5 w-5 text-primary-500 mt-0.5 flex-shrink-0"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -957,12 +1161,12 @@
                     />
                   </svg>
                   <span class="text-gray-700"
-                    >Customized progression planning</span
+                    >1 in-person session per month</span
                   >
-                </li>
-                <li class="flex items-start">
+                </div>
+                <div class="flex items-start gap-3">
                   <svg
-                    class="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
+                    class="h-5 w-5 text-primary-500 mt-0.5 flex-shrink-0"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -974,11 +1178,13 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span class="text-gray-700">Between-session check-ins</span>
-                </li>
-                <li class="flex items-start">
+                  <span class="text-gray-700"
+                    >Access to private video library</span
+                  >
+                </div>
+                <div class="flex items-start gap-3">
                   <svg
-                    class="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
+                    class="h-5 w-5 text-primary-500 mt-0.5 flex-shrink-0"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -990,14 +1196,48 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span class="text-gray-700">Flexible scheduling options</span>
-                </li>
-              </ul>
-              <a href="#contact" class="btn-primary w-full block text-center"
-                >Get Started</a
-              >
+                  <span class="text-gray-700">Weekly check-in messaging</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg
+                    class="h-5 w-5 text-primary-500 mt-0.5 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span class="text-gray-700">Nutrition & habit coaching</span>
+                </div>
+              </div>
+              <p class="text-sm text-gray-500 mb-4">
+                Interested in the VIP Membership?
+                <a
+                  href="mailto:info@trainwithmo.co.uk"
+                  class="text-primary-600 hover:underline font-medium"
+                  >Contact us</a
+                >
+                to get started.
+              </p>
+              <div class="payment-badges">
+                <span class="payment-badge">🔒 Secure Checkout</span>
+                <span class="payment-badge">💳 Stripe</span>
+                <span class="payment-badge">🛒 Klarna</span>
+                <span class="payment-badge">🏦 GoCardless</span>
+              </div>
             </div>
           </div>
+
+          <!-- Trust Note -->
+          <p class="text-center text-xs text-gray-500 mt-8 reveal">
+            All payments processed securely. Session booking occurs after
+            payment confirmation.
+          </p>
         </div>
       </section>
 
@@ -1027,7 +1267,6 @@
                 </div>
               </div>
             </div>
-
             <div class="testimonial-card reveal">
               <p class="testimonial-content mb-6">
                 Finally, a trainer who actually listens! Mo created a program
@@ -1047,7 +1286,6 @@
                 </div>
               </div>
             </div>
-
             <div class="testimonial-card reveal">
               <p class="testimonial-content mb-6">
                 The holistic approach changed my relationship with food and
@@ -1070,26 +1308,39 @@
         </div>
       </section>
 
-      <!-- FAQ Section -->
+      <!-- FAQ Section - Updated for Payment Flow -->
       <section id="faq" class="py-20 bg-white">
         <div class="container mx-auto px-4 max-w-4xl">
           <h2 class="section-header reveal">Frequently Asked Questions</h2>
           <div class="space-y-4 mt-12">
             <div class="faq-item reveal">
               <div class="faq-question">
-                <span>How do I get started with coaching?</span>
+                <span>How do I book a session?</span>
                 <span class="faq-toggle">+</span>
               </div>
               <div class="faq-answer">
                 <p>
-                  It's simple! Book a free 15-minute discovery call using the
-                  calendar below. We'll discuss your goals, answer your
-                  questions, and create a personalized plan to get you started
-                  on your transformation journey.
+                  Choose your preferred package above and click "Book Now".
+                  You'll be taken to our secure Calendly page to select a time
+                  and complete payment. After checkout, you'll receive instant
+                  confirmation with next steps.
                 </p>
               </div>
             </div>
-
+            <div class="faq-item reveal">
+              <div class="faq-question">
+                <span>What payment methods do you accept?</span>
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  We accept all major credit/debit cards via Stripe, plus Klarna
+                  (Buy Now, Pay Later) and GoCardless (Direct Debit) for UK
+                  clients. All payments are processed on encrypted,
+                  PCI-compliant pages.
+                </p>
+              </div>
+            </div>
             <div class="faq-item reveal">
               <div class="faq-question">
                 <span>Do you offer online or in-person sessions?</span>
@@ -1097,15 +1348,13 @@
               </div>
               <div class="faq-answer">
                 <p>
-                  I offer both! Virtual sessions provide flexibility and
-                  accessibility from anywhere, while in-person sessions
-                  (available in select locations) allow for hands-on form
-                  correction. We'll determine the best format for your needs
-                  during our consultation.
+                  I offer both! Virtual sessions provide flexibility from
+                  anywhere, while in-person sessions (available in select
+                  locations) allow for hands-on form correction. We'll determine
+                  the best format for your needs during booking.
                 </p>
               </div>
             </div>
-
             <div class="faq-item reveal">
               <div class="faq-question">
                 <span>What if I'm a complete beginner?</span>
@@ -1120,19 +1369,17 @@
                 </p>
               </div>
             </div>
-
             <div class="faq-item reveal">
               <div class="faq-question">
-                <span>How soon will I see results?</span>
+                <span>How do I access the VIP video library?</span>
                 <span class="faq-toggle">+</span>
               </div>
               <div class="faq-answer">
                 <p>
-                  While everyone's journey is unique, most clients notice
-                  improved energy and confidence within 2-3 weeks. Physical
-                  transformations typically become visible around 6-8 weeks with
-                  consistent effort. Remember: sustainable change is a marathon,
-                  not a sprint—and I'm with you every step of the way.
+                  VIP Monthly Members receive login credentials to our private
+                  coaching portal after their first payment. Videos are
+                  accessible via web or mobile app and are updated monthly with
+                  new content.
                 </p>
               </div>
             </div>
@@ -1140,7 +1387,7 @@
         </div>
       </section>
 
-      <!-- Contact/Booking Section -->
+      <!-- Contact/Booking Section - Direct Link Only (No Iframe) -->
       <section
         id="contact"
         class="py-20 bg-gradient-to-br from-primary-600 to-emerald-700 text-white relative overflow-hidden"
@@ -1157,21 +1404,50 @@
           <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4 reveal">
             Ready to Transform Your Life?
           </h2>
-          <p class="text-lg opacity-95 mb-12 max-w-2xl mx-auto reveal">
-            Book your free discovery call today and take the first step toward a
-            stronger, healthier, more confident you.
+          <p class="text-lg opacity-95 mb-8 max-w-2xl mx-auto reveal">
+            Choose your package above, then click below to book your session
+            securely via Calendly.
           </p>
 
-          <div class="calendly-container max-w-4xl mx-auto reveal">
-            <div
-              class="calendly-inline-widget"
-              data-url="https://calendly.com/train-with-mo?hide_landing_page_details=1&hide_gdpr_banner=1"
-              style="min-width: 320px; height: 650px"
-            ></div>
+          <!-- Direct Calendly Link Button -->
+          <div class="booking-cta reveal">
+            <h3 class="font-heading font-bold text-xl mb-3 text-gray-900">
+              🗓️ Book Your Session
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Click below to open our secure booking calendar. Select your
+              package, choose a time, and you're done.
+            </p>
+            <a
+              href="https://calendly.com/train-with-mo"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary text-lg px-8 py-4 mx-auto"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+              Open Booking Calendar
+            </a>
+            <p class="text-xs text-gray-500 mt-4">
+              🔒 Secure booking via Calendly • Takes less than 60 seconds
+            </p>
           </div>
 
+          <!-- Contact Links -->
           <div
-            class="mt-16 flex flex-col md:flex-row justify-center gap-4 reveal"
+            class="mt-12 flex flex-col md:flex-row justify-center gap-4 reveal"
           >
             <a
               href="mailto:info@trainwithmo.co.uk"
@@ -1194,7 +1470,9 @@
               <span class="font-medium">info@trainwithmo.co.uk</span>
             </a>
             <a
-              href="https://instagram.com/haden_shamden"
+              href="https://instagram.com/trainwithmo_uk"
+              target="_blank"
+              rel="noopener noreferrer"
               class="flex items-center justify-center gap-3 bg-white/15 hover:bg-white/25 px-6 py-4 rounded-2xl border border-white/20 transition-all duration-300 backdrop-blur-sm"
             >
               <svg
@@ -1212,7 +1490,7 @@
                 />
                 <circle cx="4" cy="4" r="2" stroke="none" />
               </svg>
-              <span class="font-medium">@haden_shamden</span>
+              <span class="font-medium">@trainwithmo_uk</span>
             </a>
           </div>
         </div>
@@ -1225,10 +1503,16 @@
           <p class="text-xs mt-2 opacity-70">
             Designed with ❤️ for sustainable health transformations
           </p>
+          <div class="mt-4 flex justify-center gap-4 text-xs">
+            <a href="#" class="hover:text-white transition">Terms</a>
+            <a href="#" class="hover:text-white transition">Privacy</a>
+            <a href="#" class="hover:text-white transition">Cookies</a>
+          </div>
         </div>
       </footer>
     </div>
 
+    <!-- JavaScript: All existing functionality preserved -->
     <script>
       // Mobile menu toggle
       document
@@ -1242,12 +1526,10 @@
         question.addEventListener("click", () => {
           const item = question.parentElement;
           const isActive = item.classList.contains("active");
-
           // Close all items
           document.querySelectorAll(".faq-item").forEach((i) => {
             i.classList.remove("active");
           });
-
           // Toggle current item if it wasn't active
           if (!isActive) {
             item.classList.add("active");
@@ -1257,11 +1539,9 @@
 
       // Scroll reveal animation
       const revealElements = document.querySelectorAll(".reveal");
-
       const revealOnScroll = () => {
         const windowHeight = window.innerHeight;
         const elementVisible = 150;
-
         revealElements.forEach((element) => {
           const elementTop = element.getBoundingClientRect().top;
           if (elementTop < windowHeight - elementVisible) {
@@ -1269,7 +1549,6 @@
           }
         });
       };
-
       // Initial check and scroll listener
       window.addEventListener("load", revealOnScroll);
       window.addEventListener("scroll", revealOnScroll);
@@ -1280,10 +1559,7 @@
           e.preventDefault();
           const target = document.querySelector(this.getAttribute("href"));
           if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
             // Close mobile menu if open
             document.getElementById("mobile-menu").classList.remove("active");
           }
