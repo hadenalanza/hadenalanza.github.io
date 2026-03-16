@@ -3,19 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fit with Mo | Personal Training & Health Coaching</title>
+    <title>
+      Fit with Mo | Personal Training & Health Coaching for Over 40s
+    </title>
     <link
       rel="icon"
       href="https://placehold.co/32x32/22c55e/FFFFFF?text=FM"
       type="image/png"
     />
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Manrope:wght@700;800&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -297,7 +299,7 @@
         width: 100%;
       }
 
-      /* Pricing cards - modernized */
+      /* Pricing cards */
       .pricing-card {
         background: white;
         border-radius: 2rem;
@@ -364,6 +366,66 @@
       .pricing-features svg {
         flex-shrink: 0;
         margin-top: 0.25rem;
+      }
+
+      /* Specialisms grid */
+      .specialism-card {
+        background: white;
+        border-radius: 1.5rem;
+        padding: 1.5rem;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+        transition: all 0.3s ease;
+        border-left: 4px solid #22c55e;
+      }
+      .specialism-card:hover {
+        transform: translateX(4px);
+        box-shadow: 0 8px 24px rgba(34, 197, 94, 0.15);
+      }
+
+      /* Qualifications list */
+      .qualification-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.75rem 0;
+        border-bottom: 1px dashed #e2e8f0;
+      }
+      .qualification-item:last-child {
+        border-bottom: none;
+      }
+      .qualification-icon {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        background: #dcfce7;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #16a34a;
+        font-weight: bold;
+        font-size: 0.75rem;
+      }
+
+      /* Mission quote block */
+      .mission-quote {
+        background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+        border-left: 4px solid #22c55e;
+        padding: 1.5rem;
+        border-radius: 0 1rem 1rem 0;
+        font-style: italic;
+        color: #166534;
+        position: relative;
+      }
+      .mission-quote::before {
+        content: '"';
+        position: absolute;
+        top: -10px;
+        left: 10px;
+        font-size: 3rem;
+        color: rgba(34, 197, 94, 0.3);
+        font-family: Georgia, serif;
+        line-height: 1;
       }
 
       /* Mobile menu */
@@ -469,9 +531,9 @@
               </li>
               <li>
                 <a
-                  href="#services"
+                  href="#specialisms"
                   class="nav-link text-gray-700 hover:text-primary-600"
-                  >Services</a
+                  >Specialisms</a
                 >
               </li>
               <li>
@@ -490,7 +552,7 @@
               </li>
               <li>
                 <a
-                  href="https://calendly.com/train-with-mo/60min"
+                  href="https://calendly.com/train-with-mo/first-appointment-60-mins"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="btn-primary"
@@ -549,9 +611,9 @@
             </li>
             <li>
               <a
-                href="#services"
+                href="#specialisms"
                 class="block py-2 text-gray-700 hover:text-primary-600 font-medium"
-                >Services</a
+                >Specialisms</a
               >
             </li>
             <li>
@@ -570,7 +632,7 @@
             </li>
             <li>
               <a
-                href="https://calendly.com/train-with-mo/60min"
+                href="https://calendly.com/train-with-mo/first-appointment-60-mins"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn-primary block w-full max-w-xs mx-auto mt-2"
@@ -602,21 +664,22 @@
             <p
               class="text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-95 font-light"
             >
-              Personal training and health coaching designed for real life,
-              sustainable results, and total confidence. No fads, just
-              science-backed strategies that fit your lifestyle.
+              Personal training and health coaching designed for busy
+              professionals over 40. Sustainable results, pain-free movement,
+              and total confidence—no fads, just science-backed strategies that
+              fit your life.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
               <a
-                href="https://calendly.com/train-with-mo/60min"
+                href="https://calendly.com/train-with-mo/first-appointment-60-mins"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn-primary text-lg px-8 py-4"
               >
                 Start Your Journey
               </a>
-              <a href="#services" class="btn-secondary text-lg px-8 py-4"
-                >Explore Services</a
+              <a href="#specialisms" class="btn-secondary text-lg px-8 py-4"
+                >Explore Specialisms</a
               >
             </div>
           </div>
@@ -637,7 +700,7 @@
         </div>
       </section>
 
-      <!-- About Section - Rectangle Image -->
+      <!-- About Section - Rectangle Image + Expert Bio -->
       <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-4">
           <div class="flex flex-col lg:flex-row items-center gap-16">
@@ -645,7 +708,7 @@
               <div class="hero-image-container">
                 <img
                   src="media/profile.jpg"
-                  alt="Coach Mo - Personal Training & Health Coach"
+                  alt="Coach Mo - Level 3 Certified Personal Trainer"
                   loading="lazy"
                 />
               </div>
@@ -657,138 +720,283 @@
                 Meet Coach Mo
               </h2>
               <p class="text-gray-600 mb-5 leading-relaxed text-lg">
-                Hi, I'm Mo! I specialize in helping busy professionals reclaim
-                their health through a holistic, sustainable approach. No
-                restrictive diets or unsustainable routines—just science-backed
-                strategies, genuine accountability, and movement that fits
-                seamlessly into your life.
+                I'm a
+                <span class="font-semibold text-primary-700"
+                  >Level 3 Certified Personal Trainer</span
+                >
+                with a deep background in athletic and physical therapy. Having
+                spent years working in North America specializing in
+                rehabilitation and accident prevention, I bring a
+                <span class="font-semibold text-primary-700"
+                  >clinical eye to the gym floor</span
+                >.
               </p>
-              <p class="text-gray-700 mb-8 leading-relaxed font-medium">
-                <span class="text-primary-600 font-bold"
-                  >Certified Personal Trainer</span
-                >
-                | <span class="text-primary-600 font-bold">Health Coach</span> |
-                <span class="text-primary-600 font-bold"
-                  >Lifestyle Strategist</span
-                >
+              <p class="text-gray-600 mb-6 leading-relaxed">
+                As a busy parent over 40 myself, I know exactly how difficult it
+                is to balance family life with fitness. My mission is to help
+                you
+                <span class="font-semibold text-primary-700"
+                  >stay in shape, move pain-free, and ensure your body remains
+                  resilient for years to come</span
+                >.
               </p>
-              <div class="flex flex-wrap gap-3">
-                <span
-                  class="px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-medium"
-                  >Strength Training</span
-                >
-                <span
-                  class="px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-medium"
-                  >Nutrition Coaching</span
-                >
-                <span
-                  class="px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-medium"
-                  >Mindset Work</span
-                >
-                <span
-                  class="px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-medium"
-                  >Habit Building</span
-                >
+
+              <!-- Qualifications -->
+              <div class="mb-6">
+                <h3 class="font-heading font-bold text-lg mb-3 text-gray-900">
+                  Qualifications
+                </h3>
+                <div class="space-y-2">
+                  <div class="qualification-item">
+                    <span class="qualification-icon">✓</span>
+                    <span class="text-gray-700"
+                      >Level 3 Personal Training Certification</span
+                    >
+                  </div>
+                  <div class="qualification-item">
+                    <span class="qualification-icon">✓</span>
+                    <span class="text-gray-700"
+                      >Level 2 Fitness Instructing</span
+                    >
+                  </div>
+                  <div class="qualification-item">
+                    <span class="qualification-icon">✓</span>
+                    <span class="text-gray-700"
+                      >Physical Therapy & Athletic Background (North American
+                      expertise)</span
+                    >
+                  </div>
+                  <div class="qualification-item">
+                    <span class="qualification-icon">✓</span>
+                    <span class="text-gray-700"
+                      >Specialist in Accident Prevention & Rehabilitation</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mission Quote -->
+              <div class="mission-quote">
+                <p class="mb-2">
+                  "I don't just help you look better; I help you move better. We
+                  will focus on longevity and strength, ensuring that your
+                  fitness routine supports your life rather than complicating
+                  it."
+                </p>
+                <p class="text-sm font-semibold text-primary-700">— Coach Mo</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Services Section -->
-      <section id="services" class="py-20 bg-gray-50">
+      <!-- Specialisms Section -->
+      <section id="specialisms" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
-          <h2 class="section-header reveal">How I Can Help You</h2>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div class="glass-card p-8 reveal">
-              <div
-                class="w-14 h-14 rounded-2xl bg-primary-100 flex items-center justify-center mb-6"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-7 w-7 text-primary-600"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+          <h2 class="section-header reveal">My Specialisms</h2>
+          <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12 reveal">
+            Tailored expertise for busy professionals over 40 who want
+            sustainable, pain-free results.
+          </p>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+          >
+            <!-- Specialism 1 -->
+            <div class="specialism-card reveal">
+              <div class="flex items-center gap-3 mb-3">
+                <div
+                  class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
-                </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 text-primary-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+                <h3 class="font-heading font-bold text-lg text-gray-900">
+                  Over 40s Transformation
+                </h3>
               </div>
-              <h3 class="font-heading font-bold text-xl mb-3 text-gray-900">
-                Personal Training
-              </h3>
-              <p class="text-gray-600 leading-relaxed">
-                Customized workout programs designed to build strength, improve
-                mobility, and create the physique you've always wanted—with
-                proper form and injury prevention at the core.
+              <p class="text-gray-600 text-sm">
+                Tailored plans for those juggling busy lives, career demands,
+                and family responsibilities. We work with your schedule, not
+                against it.
               </p>
             </div>
-            <div class="glass-card p-8 reveal">
-              <div
-                class="w-14 h-14 rounded-2xl bg-primary-100 flex items-center justify-center mb-6"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-7 w-7 text-primary-600"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+
+            <!-- Specialism 2 -->
+            <div class="specialism-card reveal">
+              <div class="flex items-center gap-3 mb-3">
+                <div
+                  class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                  />
-                </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 text-primary-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                    />
+                  </svg>
+                </div>
+                <h3 class="font-heading font-bold text-lg text-gray-900">
+                  Rehabilitation & Injury Prevention
+                </h3>
               </div>
-              <h3 class="font-heading font-bold text-xl mb-3 text-gray-900">
-                Health Coaching
-              </h3>
-              <p class="text-gray-600 leading-relaxed">
-                Sustainable nutrition strategies and stress management
-                techniques that boost energy, improve sleep, and create lasting
-                health—without deprivation or extreme restrictions.
+              <p class="text-gray-600 text-sm">
+                Using my therapy background to identify and fix muscular
+                imbalances before they become injuries. Train smarter, not
+                harder.
               </p>
             </div>
-            <div class="glass-card p-8 reveal">
-              <div
-                class="w-14 h-14 rounded-2xl bg-primary-100 flex items-center justify-center mb-6"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-7 w-7 text-primary-600"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+
+            <!-- Specialism 3 -->
+            <div class="specialism-card reveal">
+              <div class="flex items-center gap-3 mb-3">
+                <div
+                  class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                  />
-                </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 text-primary-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"
+                    />
+                  </svg>
+                </div>
+                <h3 class="font-heading font-bold text-lg text-gray-900">
+                  Mobility & Range of Motion
+                </h3>
               </div>
-              <h3 class="font-heading font-bold text-xl mb-3 text-gray-900">
-                Lifestyle Strategy
-              </h3>
-              <p class="text-gray-600 leading-relaxed">
-                We integrate fitness and wellness into your existing routine
-                with practical systems that actually stick—because the best
-                program is the one you'll consistently follow.
+              <p class="text-gray-600 text-sm">
+                Keeping your joints healthy and functional through targeted
+                mobility work. Move freely, live fully—without stiffness or
+                pain.
+              </p>
+            </div>
+
+            <!-- Specialism 4 -->
+            <div class="specialism-card reveal">
+              <div class="flex items-center gap-3 mb-3">
+                <div
+                  class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 text-primary-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                    />
+                  </svg>
+                </div>
+                <h3 class="font-heading font-bold text-lg text-gray-900">
+                  Nutritional Advice
+                </h3>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Realistic, sustainable eating habits designed for parents and
+                professionals. No restrictive diets—just practical strategies
+                that fit your life.
+              </p>
+            </div>
+
+            <!-- Specialism 5 -->
+            <div class="specialism-card reveal md:col-span-2 lg:col-span-1">
+              <div class="flex items-center gap-3 mb-3">
+                <div
+                  class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 text-primary-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
+                  </svg>
+                </div>
+                <h3 class="font-heading font-bold text-lg text-gray-900">
+                  Functional Strength Training
+                </h3>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Building muscle that helps you in everyday life—carrying
+                groceries, playing with kids, lifting luggage. Strength with
+                purpose.
+              </p>
+            </div>
+            <!-- Specialism 6: Mindset -->
+            <div class="specialism-card reveal">
+              <div class="flex items-center gap-3 mb-3">
+                <div
+                  class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 text-primary-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                    />
+                  </svg>
+                </div>
+                <h3 class="font-heading font-bold text-lg text-gray-900">
+                  Accountability & Mindset
+                </h3>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Break through mental barriers and build unshakeable consistency.
+                Regular check-ins and proven habit strategies to keep you on
+                track.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Pricing Section - 4 Cards with Direct Calendly Links -->
+      <!-- Pricing Section - 4 Cards with Real Calendly Links -->
       <section id="pricing" class="py-20 bg-white">
         <div class="container mx-auto px-4">
           <h2 class="section-header reveal">Simple, Transparent Pricing</h2>
@@ -799,14 +1007,14 @@
 
           <!-- 2x2 Grid for Desktop, 1x4 for Mobile -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-            <!-- Card 1: 30 Min Session -->
+            <!-- Card 1: 30 Min First Appointment -->
             <div class="pricing-card reveal">
               <h3 class="font-heading font-bold text-xl mb-1 text-gray-900">
-                30 Min Session
+                30 Min First Appointment
               </h3>
               <div class="pricing-price">£25</div>
               <p class="text-gray-600 mb-4 text-sm">
-                Perfect for quick check-ins, technique refinement, or
+                Perfect for initial assessment, technique refinement, or
                 high-intensity focus.
               </p>
               <ul class="pricing-features">
@@ -824,7 +1032,7 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span>Personalized workout plan</span>
+                  <span>Personalized movement assessment</span>
                 </li>
                 <li>
                   <svg
@@ -856,11 +1064,11 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span>Post-session notes</span>
+                  <span>Post-session notes & next steps</span>
                 </li>
               </ul>
               <a
-                href="https://calendly.com/train-with-mo/30min"
+                href="https://calendly.com/train-with-mo/first-appointment-half-hour"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn-secondary w-full justify-center"
@@ -869,15 +1077,15 @@
               </a>
             </div>
 
-            <!-- Card 2: 1 Hour Session (Featured) -->
+            <!-- Card 2: 60 Min First Appointment (Featured) -->
             <div class="pricing-card featured reveal">
               <h3 class="font-heading font-bold text-xl mb-1 text-gray-900">
-                1 Hour Session
+                60 Min First Appointment
               </h3>
               <div class="pricing-price">£45</div>
               <p class="text-gray-600 mb-4 text-sm">
-                Deep dive training, comprehensive form analysis, and integrated
-                nutrition coaching.
+                Deep dive assessment, comprehensive form analysis, and
+                integrated nutrition coaching.
               </p>
               <ul class="pricing-features">
                 <li>
@@ -946,12 +1154,12 @@
                 </li>
               </ul>
               <a
-                href="https://calendly.com/train-with-mo/60min"
+                href="https://calendly.com/train-with-mo/first-appointment-60-mins"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn-primary w-full justify-center"
               >
-                Book 1 Hour
+                Book 60 Min
               </a>
             </div>
 
@@ -1308,7 +1516,7 @@
         </div>
       </section>
 
-      <!-- FAQ Section - Updated for Payment Flow -->
+      <!-- FAQ Section -->
       <section id="faq" class="py-20 bg-white">
         <div class="container mx-auto px-4 max-w-4xl">
           <h2 class="section-header reveal">Frequently Asked Questions</h2>
@@ -1357,15 +1565,15 @@
             </div>
             <div class="faq-item reveal">
               <div class="faq-question">
-                <span>What if I'm a complete beginner?</span>
+                <span>What if I'm a complete beginner or over 40?</span>
                 <span class="faq-toggle">+</span>
               </div>
               <div class="faq-answer">
                 <p>
-                  Perfect! I specialize in helping beginners build confidence
-                  and foundational skills. We'll start at your current level and
-                  progress at a pace that feels challenging yet achievable.
-                  Every expert was once a beginner.
+                  Perfect! I specialize in helping beginners and clients over 40
+                  build confidence and foundational skills. We'll start at your
+                  current level and progress at a pace that feels challenging
+                  yet achievable. Every expert was once a beginner.
                 </p>
               </div>
             </div>
@@ -1387,7 +1595,7 @@
         </div>
       </section>
 
-      <!-- Contact/Booking Section - Direct Link Only (No Iframe) -->
+      <!-- Contact/Booking Section - Direct Link Only -->
       <section
         id="contact"
         class="py-20 bg-gradient-to-br from-primary-600 to-emerald-700 text-white relative overflow-hidden"
