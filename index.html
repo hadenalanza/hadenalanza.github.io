@@ -707,7 +707,7 @@
             <div class="lg:w-1/2 reveal">
               <div class="hero-image-container">
                 <img
-                  src="media/profile.jpg"
+                  src="media/profile2.png"
                   alt="Coach Mo - Level 3 Certified Personal Trainer"
                   loading="lazy"
                 />
@@ -996,26 +996,29 @@
         </div>
       </section>
 
-      <!-- Pricing Section - 4 Cards with Real Calendly Links -->
+      <!-- Pricing Section - Subscription Tiers -->
       <section id="pricing" class="py-20 bg-white">
         <div class="container mx-auto px-4">
-          <h2 class="section-header reveal">Simple, Transparent Pricing</h2>
+          <h2 class="section-header reveal">Simple Subscription Plans</h2>
           <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12 reveal">
-            Choose the package that fits your goals. All sessions include
-            personalized programming, form coaching, and progress tracking.
+            Choose a monthly subscription that fits your goals. All plans
+            include personalized programming, form coaching, progress tracking,
+            and 24/7 support. Cancel anytime.
           </p>
 
-          <!-- 2x2 Grid for Desktop, 1x4 for Mobile -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-            <!-- Card 1: 30 Min First Appointment -->
+          <!-- 3-Column Grid for Desktop, Stacked for Mobile -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <!-- Card 1: Basic Subscription -->
             <div class="pricing-card reveal">
               <h3 class="font-heading font-bold text-xl mb-1 text-gray-900">
-                30 Min First Appointment
+                Basic
               </h3>
-              <div class="pricing-price">£25</div>
+              <div class="pricing-price">
+                £99<span class="pricing-period">/mo</span>
+              </div>
               <p class="text-gray-600 mb-4 text-sm">
-                Perfect for initial assessment, technique refinement, or
-                high-intensity focus.
+                1 Session Per Week — Perfect for getting started with consistent
+                coaching.
               </p>
               <ul class="pricing-features">
                 <li>
@@ -1032,7 +1035,7 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span>Personalized movement assessment</span>
+                  <span>Nutrition Support & Guidance</span>
                 </li>
                 <li>
                   <svg
@@ -1048,7 +1051,7 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span>Form correction & safety focus</span>
+                  <span>24/7 Access to Exercise Video Library</span>
                 </li>
                 <li>
                   <svg
@@ -1064,28 +1067,49 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span>Post-session notes & next steps</span>
+                  <span>WhatsApp Group Access for Community Support</span>
+                </li>
+                <li>
+                  <svg
+                    class="h-5 w-5 text-primary-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span>Monthly Sunday Workshop Access</span>
                 </li>
               </ul>
               <a
-                href="https://calendly.com/train-with-mo/first-appointment-half-hour"
+                href="https://buy.stripe.com/8x200jftGbMc2xSgGW4c800"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn-secondary w-full justify-center"
               >
-                Book 30 Min
+                Start Basic Plan
               </a>
             </div>
 
-            <!-- Card 2: 60 Min First Appointment (Featured) -->
+            <!-- Card 2: Pro Subscription (Featured) -->
             <div class="pricing-card featured reveal">
               <h3 class="font-heading font-bold text-xl mb-1 text-gray-900">
-                60 Min First Appointment
+                Pro
+                <span class="text-sm font-normal text-gray-500"
+                  >(Most Popular)</span
+                >
               </h3>
-              <div class="pricing-price">£45</div>
+              <div class="pricing-price">
+                £159<span class="pricing-period">/mo</span>
+              </div>
               <p class="text-gray-600 mb-4 text-sm">
-                Deep dive assessment, comprehensive form analysis, and
-                integrated nutrition coaching.
+                2 Sessions Per Week — Ideal for accelerated progress and
+                recovery support.
               </p>
               <ul class="pricing-features">
                 <li>
@@ -1102,7 +1126,7 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span>Full-body assessment & planning</span>
+                  <span>Everything in Basic, plus:</span>
                 </li>
                 <li>
                   <svg
@@ -1118,7 +1142,7 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span>Nutrition guidance & habit strategies</span>
+                  <span>1x Monthly Sports Massage Session</span>
                 </li>
                 <li>
                   <svg
@@ -1134,7 +1158,7 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span>Personalized recovery protocols</span>
+                  <span>Comprehensive Postural Assessment</span>
                 </li>
                 <li>
                   <svg
@@ -1150,29 +1174,30 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span>Priority scheduling & support</span>
+                  <span>Priority Booking & Flexible Rescheduling</span>
                 </li>
               </ul>
               <a
-                href="https://calendly.com/train-with-mo/first-appointment-60-mins"
+                href="https://buy.stripe.com/cNicN581e3fG3BWfCS4c801"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn-primary w-full justify-center"
               >
-                Book 60 Min
+                Start Pro Plan
               </a>
             </div>
 
-            <!-- Card 3: 3-Session Bundle -->
-            <div
-              class="pricing-card reveal bg-gradient-to-br from-primary-50 to-emerald-50 border-primary-200"
-            >
+            <!-- Card 3: Elite Subscription -->
+            <div class="pricing-card reveal">
               <h3 class="font-heading font-bold text-xl mb-1 text-gray-900">
-                3-Session Starter
+                Elite
               </h3>
-              <div class="pricing-price">£114.75</div>
+              <div class="pricing-price">
+                £259<span class="pricing-period">/mo</span>
+              </div>
               <p class="text-gray-600 mb-4 text-sm">
-                Save 15% when you commit to your transformation upfront.
+                3 Sessions Per Week — Maximum support for serious
+                transformation.
               </p>
               <ul class="pricing-features">
                 <li>
@@ -1189,7 +1214,7 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span>3 pre-paid sessions</span>
+                  <span>Everything in Pro, plus:</span>
                 </li>
                 <li>
                   <svg
@@ -1205,7 +1230,7 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span>15% discount applied</span>
+                  <span>Deep Stretch Therapy Sessions</span>
                 </li>
                 <li>
                   <svg
@@ -1221,7 +1246,7 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span>Priority support between sessions</span>
+                  <span>Trigger Point Therapy for Pain Relief</span>
                 </li>
                 <li>
                   <svg
@@ -1237,121 +1262,35 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span>Valid for 3 months</span>
+                  <span>Personalized Meal Plans & Macro Guidance</span>
                 </li>
               </ul>
               <a
-                href="https://calendly.com/train-with-mo/3-session-starter-bundle"
+                href="https://buy.stripe.com/5kQ7sL6Xa4jK7Sc76m4c802"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn-primary w-full justify-center"
               >
-                Get Bundle
-              </a>
-            </div>
-
-            <!-- Card 4: 10-Session Bundle -->
-            <div
-              class="pricing-card reveal bg-gradient-to-br from-primary-100 to-emerald-100 border-primary-300"
-            >
-              <h3 class="font-heading font-bold text-xl mb-1 text-gray-900">
-                10-Session Transformation
-              </h3>
-              <div class="pricing-price">£360</div>
-              <p class="text-gray-600 mb-4 text-sm">
-                Maximum savings for maximum commitment. Save 20% + priority
-                scheduling.
-              </p>
-              <ul class="pricing-features">
-                <li>
-                  <svg
-                    class="h-5 w-5 text-primary-500"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                  <span>10 pre-paid sessions</span>
-                </li>
-                <li>
-                  <svg
-                    class="h-5 w-5 text-primary-500"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                  <span>20% discount applied</span>
-                </li>
-                <li>
-                  <svg
-                    class="h-5 w-5 text-primary-500"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                  <span>Priority scheduling & support</span>
-                </li>
-                <li>
-                  <svg
-                    class="h-5 w-5 text-primary-500"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                  <span>Valid for 6 months</span>
-                </li>
-              </ul>
-              <a
-                href="https://calendly.com/train-with-mo/10-session-starter-bundle"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn-primary w-full justify-center"
-              >
-                Get Bundle
+                Start Elite Plan
               </a>
             </div>
           </div>
 
-          <!-- VIP Subscription Callout -->
+          <!-- Subscription FAQ Callout -->
           <div class="mt-12 text-center reveal">
             <div
               class="glass-card p-6 md:p-8 max-w-3xl mx-auto border-2 border-primary-300"
             >
               <h3 class="font-heading font-bold text-xl mb-2 text-gray-900">
-                🌟 VIP Monthly Membership
+                ❓ How Subscriptions Work
               </h3>
               <p class="text-gray-600 mb-4">
-                <span class="text-2xl font-extrabold text-primary-600"
-                  >£100/month</span
+                All plans are
+                <span class="font-semibold text-primary-700"
+                  >monthly recurring</span
                 >
-                • Cancel anytime
+                with no long-term contracts. Cancel anytime with 7 days' notice
+                via your Stripe Customer Portal or by emailing us.
               </p>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left mb-6">
                 <div class="flex items-start gap-3">
@@ -1369,7 +1308,8 @@
                     />
                   </svg>
                   <span class="text-gray-700"
-                    >1 in-person session per month</span
+                    >Manage your subscription anytime via Stripe's secure
+                    portal</span
                   >
                 </div>
                 <div class="flex items-start gap-3">
@@ -1387,7 +1327,8 @@
                     />
                   </svg>
                   <span class="text-gray-700"
-                    >Access to private video library</span
+                    >Upgrade or downgrade plans anytime—prorated
+                    automatically</span
                   >
                 </div>
                 <div class="flex items-start gap-3">
@@ -1404,7 +1345,9 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span class="text-gray-700">Weekly check-in messaging</span>
+                  <span class="text-gray-700"
+                    >All therapy add-ons scheduled via priority booking</span
+                  >
                 </div>
                 <div class="flex items-start gap-3">
                   <svg
@@ -1420,17 +1363,19 @@
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span class="text-gray-700">Nutrition & habit coaching</span>
+                  <span class="text-gray-700"
+                    >Secure payment via Stripe • PCI-DSS compliant</span
+                  >
                 </div>
               </div>
               <p class="text-sm text-gray-500 mb-4">
-                Interested in the VIP Membership?
+                Questions about subscriptions?
                 <a
                   href="mailto:info@trainwithmo.co.uk"
                   class="text-primary-600 hover:underline font-medium"
                   >Contact us</a
                 >
-                to get started.
+                for a personalized plan recommendation.
               </p>
               <div class="payment-badges">
                 <span class="payment-badge">🔒 Secure Checkout</span>
@@ -1443,8 +1388,8 @@
 
           <!-- Trust Note -->
           <p class="text-center text-xs text-gray-500 mt-8 reveal">
-            All payments processed securely. Session booking occurs after
-            payment confirmation.
+            All payments processed securely by Stripe. Subscription management
+            available via your Customer Portal after first payment.
           </p>
         </div>
       </section>
